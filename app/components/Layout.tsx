@@ -3,12 +3,14 @@ import Link from 'next/link';
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
 import styled from 'styled-components';
 
+// Define props type
 type Props = {
   children: ReactNode;
   toggleTheme?: () => void;
   theme?: 'light' | 'dark';
 };
 
+// Styled component for navigation links
 const NavLink = styled.a`
   color: #0070f3; // Primary color for unvisited links
   text-decoration: none;
@@ -22,7 +24,7 @@ const NavLink = styled.a`
   }
 `;
 
-// Define the Logo styled component
+// Styled component for the logo
 const Logo = styled.div<{ theme: 'light' | 'dark' }>`
   font-size: 1.8rem;
   font-weight: bold;
@@ -31,6 +33,7 @@ const Logo = styled.div<{ theme: 'light' | 'dark' }>`
   letter-spacing: 1px;
 `;
 
+// Layout component
 const Layout: React.FC<Props> = ({ children, toggleTheme, theme = 'light' }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -39,10 +42,9 @@ const Layout: React.FC<Props> = ({ children, toggleTheme, theme = 'light' }) => 
   };
 
   return (
-    <main className={`flex flex-col items-center p-4 sm:p-8 md:p-16 lg:p-24 xl:p-32 ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-900'} min-h-screen transition duration-500 ease-in-out`}>
+    <main className={`flex flex-col items-center ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-900'} min-h-screen transition duration-500 ease-in-out p-4 sm:p-8 md:p-16 lg:p-24 xl:p-32`}>
       <header className="w-full max-w-screen-xl flex justify-between items-center mb-8 md:mb-12 lg:mb-16 px-4 md:px-8">
         <div className="flex items-center">
-          {/* Render the Logo component and pass the theme prop */}
           <Logo theme={theme}>Always On Technologies</Logo>
         </div>
 
@@ -63,9 +65,9 @@ const Layout: React.FC<Props> = ({ children, toggleTheme, theme = 'light' }) => 
           {isMobileMenuOpen ? <FaTimes className="text-2xl" /> : <FaBars className="text-2xl" />}
         </button>
       </header>
-      {/* Mobile Navigation */}
+
       {isMobileMenuOpen && (
-        <nav className="md:hidden">
+        <nav className="md:hidden text-center">
           <ul className="flex flex-col items-center gap-4">
             <li><Link href="/" passHref><NavLink>Home</NavLink></Link></li>
             <li><Link href="/contact" passHref><NavLink>Contact</NavLink></Link></li>
@@ -73,6 +75,9 @@ const Layout: React.FC<Props> = ({ children, toggleTheme, theme = 'light' }) => 
             <li><Link href="/clients" passHref><NavLink>Clients</NavLink></Link></li>
             <li><Link href="/profile" passHref><NavLink>Consultants</NavLink></Link></li>
           </ul>
+          <button onClick={toggleTheme} className="mt-4">
+            {theme === 'dark' ? <FaSun className="text-xl" /> : <FaMoon className="text-xl" />}
+          </button>
         </nav>
       )}
       {children}
