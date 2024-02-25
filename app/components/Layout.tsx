@@ -36,7 +36,7 @@ const Layout: React.FC<Props> = ({ children, toggleTheme, theme }) => {
           <ul className="flex gap-4">
             <NavItem href="/" label="Home" isActive={router.pathname === '/'} />
             <NavItem href="/contact" label="Contact" isActive={router.pathname === '/contact'} />
-            <NavItem href="/cases" label="Case Studies" isActive={router.pathname === '/case-studies'} />
+            <NavItem href="/cases" label="Case Studies" isActive={router.pathname === '/cases'} />
             <NavItem href="/clients" label="Clients" isActive={router.pathname === '/clients'} />
             <NavItem href="/profile" label="Consultants" isActive={router.pathname === '/profile'} />
           </ul>
@@ -47,7 +47,7 @@ const Layout: React.FC<Props> = ({ children, toggleTheme, theme }) => {
           <ul className="flex flex-col items-center">
             <NavItem href="/" label="Home" isActive={router.pathname === '/'} />
             <NavItem href="/contact" label="Contact" isActive={router.pathname === '/contact'} />
-            <NavItem href="/case-studies" label="Case Studies" isActive={router.pathname === '/case-studies'} />
+            <NavItem href="/cases" label="Case Studies" isActive={router.pathname === '/cases'} />
             <NavItem href="/clients" label="Clients" isActive={router.pathname === '/clients'} />
             <NavItem href="/profile" label="Consultants" isActive={router.pathname === '/profile'} />
           </ul>
