@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import { CaseStudy } from '../interfaces/CaseStudy';
 import Layout from '../components/Layout';
