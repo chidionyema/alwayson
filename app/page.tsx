@@ -1,14 +1,17 @@
+// Import necessary libraries and components
+import React, { useState } from 'react';
 import { IconType } from 'react-icons';
-import React from 'react';
-import { FaLaptopCode, FaUserCog, FaCloud, FaServer, FaMobileAlt, FaRobot, FaAdjust } from "react-icons/fa";
-import Layout from './components/Layout';
+import { FaLaptopCode, FaUserCog, FaCloud, FaServer, FaMobileAlt, FaRobot } from "react-icons/fa";
+import Layout from '../components/Layout'; // Adjust the import path as necessary
 
+// Define the type for service information
 type Service = {
   title: string;
   icon: IconType;
   description: string;
 };
 
+// Array of services offered, each with a title, icon, and description
 const services: Service[] = [
   {
     title: "Software Development",
@@ -42,21 +45,9 @@ const services: Service[] = [
   },
 ];
 
-const Home: React.FC = () => {
-  return (
-    <Layout>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((service, index) => (
-          <ServiceCard key={index} {...service} />
-        ))}
-      </div>
-    </Layout>
-  );
-};
-
+// Component for rendering individual service cards
 function ServiceCard({ title, icon, description }: Service) {
-  const Icon = icon;
-
+  const Icon = icon; // Assign the icon component from props
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl">
       <Icon className="text-5xl text-blue-500 dark:text-blue-300 mb-4" />
@@ -66,4 +57,28 @@ function ServiceCard({ title, icon, description }: Service) {
   );
 }
 
-export default Home;
+// HomePage component
+const HomePage: React.FC = () => {
+  const [theme, setTheme] = useState<'light' | 'dark'>('light'); // State to manage theme
+  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light'); // Function to toggle theme
+
+  return (
+    <Layout toggleTheme={toggleTheme} theme={theme}>
+      <div className="text-center mb-12">
+        <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${theme === 'dark' ? 'text-gray-100' : 'text-gray-900'}`}>
+          Empowering Your Digital Future
+        </h2>
+        <p className={`text-md md:text-lg lg:text-xl ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+          Specializing in cutting-edge solutions across software development, UI/UX design, and cloud technologies to drive your business forward.
+        </p>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service, index) => (
+          <ServiceCard key={index} {...service} />
+        ))}
+      </div>
+    </Layout>
+  );
+};
+
+export default HomePage;
