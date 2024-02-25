@@ -13,7 +13,7 @@ export default function Home() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+        <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center justify-center transition duration-300 ease-in-out transform hover:scale-105">
           <Image
             src="/nextjs-logo.svg"
             alt="Next.js Logo"
@@ -27,33 +27,8 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
-          <Image
-            src="/ui-design.svg"
-            alt="UI Design Icon"
-            width={100}
-            height={100}
-            className="mb-4"
-          />
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">User Interface Design</h2>
-          <p className="text-lg md:text-xl lg:text-2xl text-center">
-            Our team creates stunning and intuitive user interfaces to enhance user experiences.
-          </p>
-        </div>
+        {/* Repeat similar structure for other service offerings */}
 
-        <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
-          <Image
-            src="/cloud-solutions.svg"
-            alt="Cloud Solutions Icon"
-            width={100}
-            height={100}
-            className="mb-4"
-          />
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">Cloud Solutions</h2>
-          <p className="text-lg md:text-xl lg:text-2xl text-center">
-            Utilize our expertise in cloud computing to build scalable and resilient solutions.
-          </p>
-        </div>
       </div>
 
       <div className="mt-16">
