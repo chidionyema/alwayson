@@ -72,11 +72,16 @@ const CaseStudyItem: React.FC<CaseStudy> = ({ title, client, duration, challenge
 };
 
 
+
+
 const CasesPage: React.FC = () => {
   return (
     <Layout>
       <div className="page-container">
       <h1 style={{ color: '#0f2b46' , fontWeight: 'bold' }}> Case Studies</h1>
+      <p className="text-lg mb-6">
+  {" Explore our collection of case studies to understand how we've helped..."}
+</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {caseStudiesData.map((study, index) => (
             <CaseStudyItem key={index} {...study} />
