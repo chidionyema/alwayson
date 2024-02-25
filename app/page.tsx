@@ -1,9 +1,16 @@
-import Image from "next/image";
+import { IconType } from "react-icons";
 import { FaLaptopCode, FaUserCog, FaCloud, FaServer, FaMobileAlt, FaRobot } from "react-icons/fa";
+
+// Define a type for the service object
+type Service = {
+  title: string;
+  icon: IconType;
+  description: string;
+};
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center p-8 md:p-16 lg:p-24 xl:p-32 bg-gray-100 min-h-screen">
+    <main className="flex flex-col items-center justify-between p-8 md:p-16 lg:p-24 xl:p-32 bg-gray-100 min-h-screen">
       <div className="max-w-5xl w-full text-center mb-12">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-800">
           Welcome to Always On Technologies
@@ -31,7 +38,7 @@ export default function Home() {
   );
 }
 
-const services = [
+const services: Service[] = [
   {
     title: "Software Development",
     icon: FaLaptopCode,
@@ -64,7 +71,7 @@ const services = [
   },
 ];
 
-function ServiceCard({ title, icon, description }) {
+function ServiceCard({ title, icon, description }: Service) {
   const Icon = icon;
 
   return (
