@@ -8,7 +8,9 @@ const ConsultantProfilePage: React.FC = () => {
   return (
     <Layout>
    <div className="page-container">
+   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
    <h1 style={{ color: '#0f2b46' }} className="text-left text-[#0f2b46] font-bold">Our Consultants</h1>
+   </br>
 
         <section className="bio text-center">
           <Image src={profilePic} alt="Chidi Onyema" width={144} height={144} className="rounded-full mx-auto mb-6" />
@@ -17,6 +19,7 @@ const ConsultantProfilePage: React.FC = () => {
           <p className="text-md">Specializing in .NET Framework, Agile Development, DevOps, and Cloud Solutions.</p>
           <p className="text-md mt-4">Contact: <a href="mailto:chidionyema@gmail.com" className="text-blue-500">chidionyema@gmail.com</a> | Mobile: <a href="tel:+07904026978" className="text-blue-500">07904 026 978</a></p>
         </section>
+      </div>
       </div>
     </Layout>
   );
