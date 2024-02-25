@@ -50,10 +50,10 @@ const services: Service[] = [
 function ServiceCard({ title, icon, description }: Service) {
   const Icon = icon;
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl">
-      <Icon className="text-5xl text-blue-500 dark:text-blue-300 mb-4 hover:text-blue-600 transition-colors duration-300" />
-      <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-4 text-gray-900 dark:text-white hover:text-gray-600 transition-colors duration-300">{title}</h2>
-      <p className="text-base md:text-lg lg:text-xl text-center text-gray-700 dark:text-gray-300">{description}</p>
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-2xl">
+      <Icon className="text-6xl text-blue-500 dark:text-blue-300 mb-4 hover:text-blue-600 transition-colors duration-500" />
+      <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-4 text-gray-900 dark:text-white hover:text-gray-600 transition-colors duration-500">{title}</h2>
+      <p className="text-md md:text-lg lg:text-xl text-center text-gray-700 dark:text-gray-300">{description}</p>
     </div>
   );
 }

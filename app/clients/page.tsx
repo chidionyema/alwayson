@@ -63,12 +63,13 @@ const ClientsPage: React.FC = () => {
 
 const ClientItem: React.FC<{ name: string; description: string }> = ({ name, description }) => {
   return (
-    <li className="border border-gray-300 rounded-lg shadow-md p-6">
-      <h2 className="text-xl font-semibold mb-2">{name}</h2>
-      <p className="text-gray-700">{description}</p>
+    <li className="border border-gray-200 rounded-lg shadow-sm hover:shadow-lg p-8 transition-shadow duration-300 ease-in-out">
+      <h2 className="text-2xl font-semibold mb-4">{name}</h2>
+      <p className="text-gray-600">{description}</p>
     </li>
   );
 };
+
 
 export default ClientsPage;
 
