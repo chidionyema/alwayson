@@ -92,9 +92,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         </nav>
       )}
       {children}
-    </main>
-
-    </ThemeProvider>
+      </main>
   );
 };
 
