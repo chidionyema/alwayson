@@ -58,13 +58,13 @@ const CaseStudyItem: React.FC<CaseStudy> = ({ title, client, duration, challenge
   return (
     <div className="border border-gray-300 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out mb-6 cursor-pointer">
       <div className="p-6 bg-white dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-gray-700 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-101">
-        <h2 className="text-2xl font-bold mb-2">{title}</h2>
-        <p className="text-gray-800 font-semibold mb-1"><strong>Client:</strong> {client}</p>
-        <p className="text-gray-700 mb-2"><strong>Duration:</strong> {duration}</p>
-        <p className="text-gray-700 mb-2"><strong>Challenge:</strong> {challenge}</p>
-        <p className="text-gray-700 mb-2"><strong>Solution:</strong> {solution}</p>
-        <p className="text-gray-700 mb-2"><strong>Result:</strong> {result}</p>
-        <p className="text-gray-700"><strong>Key Technologies:</strong> {technologies.join(', ')}</p>
+        <h2 className="text-gray-700 dark:text-gray-300 text-sm md:text-base">{title}</h2>
+        <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base"><strong>Client:</strong> {client}</p>
+        <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base"><strong>Duration:</strong> {duration}</p>
+        <p className="ttext-gray-700 dark:text-gray-300 text-sm md:text-base"><strong>Challenge:</strong> {challenge}</p>
+        <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base"><strong>Solution:</strong> {solution}</p>
+        <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base"><strong>Result:</strong> {result}</p>
+        <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base"><strong>Key Technologies:</strong> {technologies.join(', ')}</p>
       </div>
     </div>
   );
@@ -84,5 +84,3 @@ const CasesPage: React.FC = () => {
     </Layout>
   );
 };
-
-export default CasesPage;
