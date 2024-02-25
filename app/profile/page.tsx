@@ -1,7 +1,7 @@
 import React from 'react';
-import { CaseStudyProps } from '../interfaces/CaseStudy';
+import { CaseStudy } from '../interfaces/CaseStudy';
 
-const CaseStudy: React.FC<CaseStudyProps> = ({ title, client, duration, challenge, solution, result, technologies }) => (
+const CaseStudy: React.FC<CaseStudy> = ({ title, client, duration, challenge, solution, result, technologies }) => (
   <div className="case-study">
     <h3>{title}</h3>
     <p><strong>Client:</strong> {client}</p>
@@ -14,7 +14,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({ title, client, duration, challeng
 );
 
 const ConsultantProfilePage: React.FC = () => {
-  const caseStudies: CaseStudyProps[] = [
+  const caseStudies: CaseStudy[] = [
     {
       title: "Government Service Infrastructure Overhaul",
       client: "HMCTS (Her Majesty's Courts and Tribunals Service)",
