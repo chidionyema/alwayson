@@ -1,7 +1,7 @@
 import React, { ReactNode, useState } from 'react';
 import Link from 'next/link';
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
-import styled from 'styled-components'; // Assuming you're using styled-components for CSS-in-JS
+import styled, { css } from 'styled-components'; // Make sure styled-components is installed
 
 type Props = {
   children: ReactNode;
@@ -9,18 +9,35 @@ type Props = {
   theme?: 'light' | 'dark';
 };
 
+// Global style variables
+const colors = {
+  primary: '#0070f3',
+  visited: '#5e5e5e',
+  hover: '#003580',
+};
+
 // Styled components for navigation links
 const NavLink = styled.a`
-  color: #0070f3; // Primary color for unvisited links
+  color: ${colors.primary};
   text-decoration: none;
   &:visited {
-    color: #5e5e5e; // Distinct color for visited links
+    color: ${colors.visited};
   }
   &:hover,
   &:focus {
-    color: #003580; // Interaction feedback color
-    text-decoration: underline; // Optional: underline on hover/focus
+    color: ${colors.hover};
+    text-decoration: underline;
   }
+`;
+
+// Logo styling
+const LogoText = styled.span`
+  font-size: 1.5rem; // Adjust based on your preference
+  font-weight: bold;
+  margin-left: 0.5rem;
+  ${props => props.theme === 'dark' && css`
+    color: white; // Adjust color based on theme
+  `}
 `;
 
 const Layout: React.FC<Props> = ({ children, toggleTheme, theme }) => {
@@ -34,7 +51,8 @@ const Layout: React.FC<Props> = ({ children, toggleTheme, theme }) => {
     <main className={`flex flex-col items-center p-4 sm:p-8 md:p-16 lg:p-24 xl:p-32 ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-900'} min-h-screen transition duration-500 ease-in-out`}>
       <header className="w-full max-w-screen-xl flex justify-between items-center mb-8 md:mb-12 lg:mb-16 px-4 md:px-8">
         <div className="flex items-center">
-          <span className="text-lg md:text-xl lg:text-2xl font-bold ml-4">Always On Technologies</span>
+          {/* Logo as a styled text */}
+          <LogoText theme={theme}>Always On Technologies</LogoText>
         </div>
 
         <nav className="hidden md:flex flex-grow justify-end items-center">
