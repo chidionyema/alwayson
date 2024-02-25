@@ -1,7 +1,7 @@
 import React, { ReactNode, useState } from 'react';
 import Link from 'next/link';
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
-import styled, { css } from 'styled-components'; // Make sure styled-components is installed
+import styled from 'styled-components'; // Assuming you're using styled-components for CSS-in-JS
 
 type Props = {
   children: ReactNode;
@@ -9,39 +9,18 @@ type Props = {
   theme?: 'light' | 'dark';
 };
 
-// Global style variables
-const colors = {
-  primary: '#0070f3',
-  visited: '#5e5e5e',
-  hover: '#003580',
-};
-
 // Styled components for navigation links
 const NavLink = styled.a`
-  color: ${colors.primary};
+  color: #0070f3; // Primary color for unvisited links
   text-decoration: none;
   &:visited {
-    color: ${colors.visited};
+    color: #5e5e5e; // Distinct color for visited links
   }
   &:hover,
   &:focus {
-    color: ${colors.hover};
-    text-decoration: underline;
+    color: #003580; // Interaction feedback color
+    text-decoration: underline; // Optional: underline on hover/focus
   }
-`;
-
-// Logo styling
-// Assuming your theme is correctly set up and provided to your app
-const LogoText = styled.span`
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-left: 0.5rem;
-  color: ${({ theme }) => theme.text}; // Use theme colors directly without comparison
-
-  // Example of conditional styling based on theme mode
-  ${({ theme }) => theme.mode === 'dark' && css`
-    color: white; // Or any color you want for dark mode
-  `}
 `;
 
 const Layout: React.FC<Props> = ({ children, toggleTheme, theme }) => {
@@ -55,8 +34,7 @@ const Layout: React.FC<Props> = ({ children, toggleTheme, theme }) => {
     <main className={`flex flex-col items-center p-4 sm:p-8 md:p-16 lg:p-24 xl:p-32 ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-900'} min-h-screen transition duration-500 ease-in-out`}>
       <header className="w-full max-w-screen-xl flex justify-between items-center mb-8 md:mb-12 lg:mb-16 px-4 md:px-8">
         <div className="flex items-center">
-          {/* Logo as a styled text */}
-          <LogoText theme={theme}>Always On Technologies</LogoText>
+          <span className="text-lg md:text-xl lg:text-2xl font-bold ml-4">Always On Technologies</span>
         </div>
 
         <nav className="hidden md:flex flex-grow justify-end items-center">
