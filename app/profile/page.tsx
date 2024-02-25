@@ -7,7 +7,7 @@ import profilePic from '../assets/profile-pic.jpeg';
 const ConsultantProfilePage: React.FC = () => {
   return (
     <Layout>
-      <div className="consultant-profile px-4 py-8">
+   <div className="page-container">
       <h1 style={{ color: '#0f2b46' , fontWeight: 'bold'  }}> Our Consultants</h1>
         <section className="bio text-center">
           <Image src={profilePic} alt="Chidi Onyema" width={144} height={144} className="rounded-full mx-auto mb-6" />
