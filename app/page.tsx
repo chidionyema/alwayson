@@ -79,7 +79,7 @@ const HomePage: React.FC = () => {
         <ServiceCard key={index} {...service} />
       ))}
     </div>
-  </Layout>;
+  </Layout>
   
   );
 };
