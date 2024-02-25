@@ -20,8 +20,8 @@ const Layout: React.FC<Props> = ({ children, toggleTheme, theme }) => {
       <header className="w-full flex flex-col md:flex-row justify-between items-center mb-12">
         {/* Logo */}
         <div className="flex items-center mb-4 md:mb-0">
-          <img src="/your-logo.png" alt="Always On Technologies" className="h-8 md:h-auto" />
-          <span className="ml-2 text-lg font-bold">Always On Technologies</span>
+          <img src="/your-logo.png" alt="Always On Technologies" className="h-8 md:h-auto mr-2 md:mr-4" />
+          <span className="text-lg font-bold">Always On Technologies</span>
         </div>
 
         {/* Mobile Menu Button */}
