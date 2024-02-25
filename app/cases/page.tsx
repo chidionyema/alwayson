@@ -53,26 +53,33 @@ const caseStudiesData: CaseStudy[] = [
   // Add more case studies here if needed
 ];
 
+
+const CaseStudyItem: React.FC<CaseStudy> = ({ title, client, duration, challenge, solution, result, technologies }) => {
+  return (
+    <div className="border border-gray-300 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out mb-6 cursor-pointer">
+      <div className="p-6 bg-white dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-gray-700 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-101">
+        <h2 className="text-2xl font-bold mb-2">{title}</h2>
+        <p className="text-gray-800 font-semibold mb-1"><strong>Client:</strong> {client}</p>
+        <p className="text-gray-700 mb-2"><strong>Duration:</strong> {duration}</p>
+        <p className="text-gray-700 mb-2"><strong>Challenge:</strong> {challenge}</p>
+        <p className="text-gray-700 mb-2"><strong>Solution:</strong> {solution}</p>
+        <p className="text-gray-700 mb-2"><strong>Result:</strong> {result}</p>
+        <p className="text-gray-700"><strong>Key Technologies:</strong> {technologies.join(', ')}</p>
+      </div>
+    </div>
+  );
+};
+
 const CasesPage: React.FC = () => {
   return (
     <Layout>
       <div className="page-container">
         <h1 className="text-3xl font-bold mb-8">Case Studies</h1>
-        {caseStudiesData.map((study, index) => (
-         <div key={index} className="border border-gray-300 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out mb-6">
-         <div className="p-6">
-           <h2 className="text-2xl font-bold mb-2 text-indigo-600">{study.title}</h2>
-           <p className="text-gray-800 font-semibold mb-1">Role & Contributions</p>
-           <p className="text-gray-700 mb-2"><strong>Client:</strong> {study.client}</p>
-           <p className="text-gray-700 mb-2"><strong>Duration:</strong> {study.duration}</p>
-           <p className="text-gray-700 mb-2"><strong>Challenge:</strong> {study.challenge}</p>
-           <p className="text-gray-700 mb-2"><strong>Solution:</strong> {study.solution}</p>
-           <p className="text-gray-700 mb-2"><strong>Result:</strong> {study.result}</p>
-           <p className="text-gray-700"><strong>Key Technologies:</strong> {study.technologies.join(', ')}</p>
-         </div>
-       </div>
-       
-        ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {caseStudiesData.map((study, index) => (
+            <CaseStudyItem key={index} {...study} />
+          ))}
+        </div>
       </div>
     </Layout>
   );
