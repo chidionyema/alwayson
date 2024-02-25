@@ -10,7 +10,8 @@ const ContactPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div>
             {/* Heading consistent with the Consultant Profile Page */}
-            <h1 style={{ color: '#0f2b46', fontWeight: 'bold' }} className="text-3xl mb-4">Contact Us</h1>
+            <h1 style={{ color: '#0f2b46', fontWeight: 'bold' }} >Contact Us</h1>
+
             <p className="text-lg mb-6">
   {"We're eager to hear from you. Use the form below to send us a message, ask a question, or request a consultation. Our team will get back to you as soon as possible."}
 </p>
