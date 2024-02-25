@@ -3,7 +3,6 @@
 import { IconType } from 'react-icons';
 import { FaLaptopCode, FaUserCog, FaCloud, FaServer, FaMobileAlt, FaRobot } from "react-icons/fa";
 import Layout from './components/Layout'; 
-import { useTheme } from './ThemeContext';
 
 
 
@@ -64,7 +63,6 @@ function ServiceCard({ title, icon, description }: Service) {
 
 // HomePage component
 const HomePage: React.FC = () => {
-  const { theme } = useTheme();
   return (
     <Layout>
       <div className="text-center mb-12">

@@ -1,9 +1,11 @@
 // Layout.tsx
+// Import the useTheme hook instead of ThemeProvider for context consumption
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
 import styled from 'styled-components';
-import { useTheme } from '../ThemeContext'; // Import the useTheme hook
+import { useTheme } from '../ThemeContext'; // Adjusted import to useTheme
+
 
 // Define props type
 type Props = {
@@ -39,9 +41,8 @@ const Logo = styled.div<{ theme: 'light' | 'dark' }>`
   }
 `;
 
-// Layout component
 const Layout: React.FC<Props> = ({ children }) => {
-  const { theme, toggleTheme } = useTheme(); // Use the useTheme hook to access theme and toggleTheme
+  const { theme, toggleTheme } = useTheme(); // Correctly consume the theme context
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -49,10 +50,12 @@ const Layout: React.FC<Props> = ({ children }) => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // No need to wrap with ThemeProvider here; it should wrap the Layout component usage in _app.tsx or individual pages
   return (
     <main className={`flex flex-col items-center ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-900'} min-h-screen transition duration-500 ease-in-out p-4 sm:p-8 md:p-16 lg:p-24 xl:p-32`}>
       <header className="w-full max-w-screen-xl flex justify-between items-center mb-8 md:mb-12 lg:mb-16 px-4 md:px-8">
         <div className="flex items-center">
+          {/* Pass theme as a prop to Logo */}
           <Logo theme={theme}>Always On Technologies</Logo>
         </div>
 
@@ -90,6 +93,8 @@ const Layout: React.FC<Props> = ({ children }) => {
       )}
       {children}
     </main>
+
+    </ThemeProvider>
   );
 };
 
