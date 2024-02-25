@@ -6,8 +6,6 @@ import styled from 'styled-components';
 // Define props type
 type Props = {
   children: ReactNode;
-  toggleTheme?: () => void;
-  theme?: 'light' | 'dark';
 };
 
 // Styled component for navigation links
@@ -39,10 +37,14 @@ const Logo = styled.div<{ theme: 'light' | 'dark' }>`
   }
 `;
 
-
 // Layout component
-const Layout: React.FC<Props> = ({ children, toggleTheme, theme = 'light' }) => {
+const Layout: React.FC<Props> = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'dark'>('light'); // State for theme
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light'); // Toggle between light and dark themes
+  };
 
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
