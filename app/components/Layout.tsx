@@ -31,12 +31,16 @@ const NavLink = styled.a`
 `;
 
 // Logo styling
+// Assuming your theme is correctly set up and provided to your app
 const LogoText = styled.span`
-  font-size: 1.5rem; // Adjust based on your preference
+  font-size: 1.5rem;
   font-weight: bold;
   margin-left: 0.5rem;
-  ${props => props.theme === 'dark' && css`
-    color: white; // Adjust color based on theme
+  color: ${({ theme }) => theme.text}; // Use theme colors directly without comparison
+
+  // Example of conditional styling based on theme mode
+  ${({ theme }) => theme.mode === 'dark' && css`
+    color: white; // Or any color you want for dark mode
   `}
 `;
 
