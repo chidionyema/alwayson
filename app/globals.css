@@ -31,15 +31,5 @@ body {
     text-wrap: balance;
   }
 
-  .service-card {
-    background-color: #ffffff; /* Set background color for light mode */
-    color: #333333; /* Set text color for light mode */
   
-    /* Add additional styles as needed */
-  
-    /* Dark mode styles */
-    @media (prefers-color-scheme: dark) {
-      background-color: #333333; /* Set background color for dark mode */
-      color: #ffffff; /* Set text color for dark mode */
-    }
 }
