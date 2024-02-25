@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout'; // Adjust the import path as necessary
 
-const Contact: React.FC = () => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
-
+const ContactPage = () => {
+    const [theme, setTheme] = useState<'light' | 'dark'>('light'); // Example useState usage
+  
   return (
-    <Layout toggleTheme={toggleTheme} theme={theme}>
+    <Layout>
       <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto">
         <h1 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-8 ${theme === 'dark' ? 'text-gray-100' : 'text-gray-900'}`}>
           Contact Us

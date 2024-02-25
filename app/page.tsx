@@ -47,15 +47,16 @@ const services: Service[] = [
 
 // Component for rendering individual service cards
 function ServiceCard({ title, icon, description }: Service) {
-  const Icon = icon; // Assign the icon component from props
+  const Icon = icon;
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl">
-      <Icon className="text-5xl text-blue-500 dark:text-blue-300 mb-4" />
-      <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-4 text-gray-900 dark:text-white">{title}</h2>
+      <Icon className="text-5xl text-blue-500 dark:text-blue-300 mb-4 hover:text-blue-600 transition-colors duration-300" />
+      <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-4 text-gray-900 dark:text-white hover:text-gray-600 transition-colors duration-300">{title}</h2>
       <p className="text-base md:text-lg lg:text-xl text-center text-gray-700 dark:text-gray-300">{description}</p>
     </div>
   );
 }
+
 
 // HomePage component
 const HomePage: React.FC = () => {
