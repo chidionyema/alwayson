@@ -104,3 +104,4 @@ const Layout: React.FC<Props> = ({ children }) => {
     </main>
   );
 };
+export default Layout;
