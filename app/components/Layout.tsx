@@ -37,11 +37,10 @@ const Layout: React.FC<Props> = ({ children, toggleTheme, theme }) => {
         <nav className="hidden md:flex md:flex-1 md:justify-center">
           <ul className="flex gap-4">
             <li><Link href="/"><a className={`nav-link ${theme === 'dark' ? 'dark-mode-text' : ''}`}>Home</a></Link></li>
-            <li><Link href="/contact"><a className={`nav-link ${theme === 'dark' ? 'dark-mode-text' : ''}`}>Contact</a></Link></li>
-            <li><Link href="/case-
-            studies"><a className={`nav-link ${theme === 'dark' ? 'dark-mode-text' : ''}`}>Case Studies</a></Link></li>
+            <li><Link href="/casestudies"><a className={`nav-link ${theme === 'dark' ? 'dark-mode-text' : ''}`}>Case Studies</a></Link></li>
             <li><Link href="/clients"><a className={`nav-link ${theme === 'dark' ? 'dark-mode-text' : ''}`}>Clients</a></Link></li>
             <li><Link href="/profile"><a className={`nav-link ${theme === 'dark' ? 'dark-mode-text' : ''}`}>Consultants</a></Link></li>
+            <li><Link href="/contact"><a className={`nav-link ${theme === 'dark' ? 'dark-mode-text' : ''}`}>Contact</a></Link></li>
           </ul>
         </nav>
       </header>
