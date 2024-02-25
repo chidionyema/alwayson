@@ -17,7 +17,13 @@ const Layout: React.FC<Props> = ({ children, toggleTheme, theme }) => {
 
   return (
     <main className={`flex flex-col items-center p-8 md:p-16 lg:p-24 xl:p-32 ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-900'} min-h-screen transition duration-500 ease-in-out`}>
-      <header className="w-full flex justify-between items-center mb-12">
+      <header className="w-full flex flex-col md:flex-row justify-between items-center mb-12">
+        {/* Logo */}
+        <div className="flex items-center mb-4 md:mb-0">
+          <img src="/your-logo.png" alt="Always On Technologies" className="h-8 md:h-auto" />
+          <span className="ml-2 text-lg font-bold">Always On Technologies</span>
+        </div>
+
         {/* Mobile Menu Button */}
         <div className="block md:hidden">
           <button onClick={handleMobileMenuToggle}>
