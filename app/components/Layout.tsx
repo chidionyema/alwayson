@@ -1,46 +1,48 @@
-import React, { ReactNode, useState } from 'react';
+// Layout.tsx
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
 import styled from 'styled-components';
+import { useTheme } from '../ThemeContext'; // Import the useTheme hook
 
 // Define props type
 type Props = {
-  children: ReactNode;
-  toggleTheme: () => void; // Include toggleTheme in Props type
-  theme?: 'light' | 'dark';
+  children: React.ReactNode;
 };
 
 // Styled component for navigation links
 const NavLink = styled.a`
-  color: #0070f3; // Primary color for unvisited links
+  color: #0070f3;
   text-decoration: none;
   &:visited {
-    color: #5e5e5e; // Distinct color for visited links
+    color: #5e5e5e;
   }
   &:hover,
   &:focus {
-    color: #003580; // Interaction feedback color
-    text-decoration: underline; // Optional: underline on hover/focus
+    color: #003580;
+    text-decoration: underline;
   }
 `;
 
 // Styled component for the logo
 const Logo = styled.div<{ theme: 'light' | 'dark' }>`
-  font-size: 2.5rem; /* Increase font size */
+  font-size: 2.5rem;
   font-weight: bold;
-  color: #0f2b46; // Set the color directly here
+  color: #0f2b46;
   text-transform: uppercase;
-  letter-spacing: 2px; /* Increase letter spacing */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add text shadow */
-  transition: transform 0.3s ease-in-out; /* Add transition effect */
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
   
   &:hover {
-    transform: scale(1.1); /* Scale up on hover for an impressive effect */
+    transform: scale(1.1);
   }
 `;
 
 // Layout component
-const Layout: React.FC<Props> = ({ children, toggleTheme, theme = 'light' }) => {
+const Layout: React.FC<Props> = ({ children }) => {
+  const { theme, toggleTheme } = useTheme(); // Use the useTheme hook to access theme and toggleTheme
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleMobileMenuToggle = () => {

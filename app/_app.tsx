@@ -1,10 +1,18 @@
+
+
 // _app.tsx
 
 import 'global.css';
-import type { AppProps } from 'next/app';
+import React from 'react';
+import { AppProps } from 'next/app';
+import { ThemeProvider } from '../ThemeContext';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
-}
+const App: React.FC<AppProps> = ({ Component, pageProps }) => {
+  return (
+    <ThemeProvider>
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
+};
 
-export default MyApp;
+export default App;
