@@ -1,9 +1,10 @@
-"use client";
 import React from 'react';
 import { CaseStudy } from '../interfaces/CaseStudy';
 import Layout from '../components/Layout';
+// Import profile picture for the consultant
+import profilePic from '../assets/profile-pic.jpeg'; // Adjust the path as necessary
 
-const CaseStudy: React.FC<CaseStudy> = ({ title, client, duration, challenge, solution, result, technologies }) => (
+const CaseStudyComponent: React.FC<CaseStudy> = ({ title, client, duration, challenge, solution, result, technologies }) => (
   <div className="case-study">
     <h3>{title}</h3>
     <p><strong>Client:</strong> {client}</p>
@@ -31,18 +32,23 @@ const ConsultantProfilePage: React.FC = () => {
 
   return (
     <Layout>
-    <div className="consultant-profile">
-      <section className="bio">
-        <h2>Chidi Onyema</h2>
-        <p>Senior Software Engineer & Consultant specializing in .NET Framework, Agile Development, DevOps, and Cloud Solutions.</p>
-        <p>Contact: <a href="mailto:chidionyema@gmail.com">chidionyema@gmail.com</a> | Mobile: 07904 026 978</p>
-      </section>
-      <section className="case-studies">
-        {caseStudies.map((study, index) => (
-          <CaseStudy key={index} {...study} />
-        ))}
-      </section>
-    </div>
+      <div className="consultant-profile">
+        <section className="bio">
+          {/* Profile Picture */}
+          <img src={profilePic} alt="Chidi Onyema" className="rounded-full h-24 w-24 mx-auto mb-4" />
+
+          {/* Consultant Information */}
+          <h2 className="text-xl font-semibold">Chidi Onyema</h2>
+          <p className="text-md mb-2">Senior Software Engineer & Consultant specializing in .NET Framework, Agile Development, DevOps, and Cloud Solutions.</p>
+          <p className="text-md mb-2">Contact: <a href="mailto:chidionyema@gmail.com">chidionyema@gmail.com</a> | Mobile: 07904 026 978</p>
+        </section>
+        <section className="case-studies">
+          {/* Display Case Studies */}
+          {caseStudies.map((study, index) => (
+            <CaseStudyComponent key={index} {...study} />
+          ))}
+        </section>
+      </div>
     </Layout>
   );
 };

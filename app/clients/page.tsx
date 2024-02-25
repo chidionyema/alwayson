@@ -7,7 +7,9 @@ const ClientsPage: React.FC = () => {
     <Layout>
       <div className="page-container">
         <h1 className="text-3xl font-bold mb-8">Our Clients</h1>
-        <p className="text-lg mb-6">We partner with leading organizations across various industries to deliver innovative solutions:</p>
+        <p className="text-lg mb-6">
+          We partner with leading organizations across various industries to deliver innovative solutions:
+        </p>
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <ClientItem
             name="HMCTS (Her Majesty's Courts and Tribunals Service)"
@@ -61,11 +63,15 @@ const ClientsPage: React.FC = () => {
 
 const ClientItem: React.FC<{ name: string; description: string }> = ({ name, description }) => {
   return (
-    <li className="border border-gray-300 rounded p-6">
-      <h2 className="text-xl font-semibold mb-4">{name}</h2>
-      <p className="text-gray-700 mb-4">{description}</p>
+    <li className="border border-gray-300 rounded-lg shadow-md p-6">
+      <h2 className="text-xl font-semibold mb-2">{name}</h2>
+      <p className="text-gray-700">{description}</p>
     </li>
   );
 };
 
 export default ClientsPage;
+
+
+
+"
