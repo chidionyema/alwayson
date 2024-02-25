@@ -7,8 +7,8 @@ const ClientsPage: React.FC = () => {
       <h1>Our Clients</h1>
       <p>We partner with leading organizations across various industries to deliver innovative solutions:</p>
       <ul>
-        <li>
-          <strong>HMCTS (Her Majesty's Courts and Tribunals Service)</strong>: 
+      <li>
+          <strong>HMCTS (Her Majesty&apos;s Courts and Tribunals Service)</strong>: 
           Revolutionized government services by leading a digital infrastructure overhaul. This involved deploying a CI/CD pipeline, re-architecting the platform, and orchestrating microservices using Kubernetes.
         </li>
         <li>
