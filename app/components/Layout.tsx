@@ -26,12 +26,19 @@ const NavLink = styled.a`
 
 // Styled component for the logo
 const Logo = styled.div<{ theme: 'light' | 'dark' }>`
-  font-size: 1.8rem;
+  font-size: 2.5rem; /* Increase font size */
   font-weight: bold;
   color: #0f2b46; // Set the color directly here
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px; /* Increase letter spacing */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add text shadow */
+  transition: transform 0.3s ease-in-out; /* Add transition effect */
+  
+  &:hover {
+    transform: scale(1.1); /* Scale up on hover for an impressive effect */
+  }
 `;
+
 
 // Layout component
 const Layout: React.FC<Props> = ({ children, toggleTheme, theme = 'light' }) => {
