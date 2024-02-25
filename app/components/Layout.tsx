@@ -28,7 +28,7 @@ const NavLink = styled.a`
 const Logo = styled.div<{ theme: 'light' | 'dark' }>`
   font-size: 1.8rem;
   font-weight: bold;
-  color: ${props => props.theme === 'dark' ? '#ffffff' : '#0070f3'};
+  color: #0f2b46; // Set the color directly here
   text-transform: uppercase;
   letter-spacing: 1px;
 `;
