@@ -1,4 +1,3 @@
-// pages/case-studies.tsx
 import React from 'react';
 import Layout from '../components/Layout';
 import { CaseStudy } from '../interfaces/CaseStudy';
@@ -50,22 +49,27 @@ const caseStudiesData: CaseStudy[] = [
     result: "Improved overall site performance, reducing product catalog database network traffic by 40% and enabling new delivery services that enhanced customer satisfaction.",
     technologies: ["ASP.NET", "C#", "SQL Server 2008", "JavaScript", "HTML", "CSS"],
   },
-  
+  // Add more case studies here if needed
 ];
 
 const CaseStudiesPage: React.FC = () => {
-    return (
-        <Layout>
-    <div className="page-container">
-      <h1>Case Studies</h1>
-      {caseStudiesData.map((study, index) => (
-        <div key={index} className="case-study">
-          <h3>{study.title}</h3>
-          {/* The rest of the case study details */}
-        </div>
-      ))}
-    </div>
-   </Layout>
+  return (
+    <Layout>
+      <div className="page-container">
+        <h1 className="text-3xl font-bold mb-8">Case Studies</h1>
+        {caseStudiesData.map((study, index) => (
+          <div key={index} className="border border-gray-300 rounded p-6 mb-4">
+            <h2 className="text-xl font-semibold mb-2">{study.title}</h2>
+            <p className="text-gray-700 mb-2"><strong>Client:</strong> {study.client}</p>
+            <p className="text-gray-700 mb-2"><strong>Duration:</strong> {study.duration}</p>
+            <p className="text-gray-700 mb-2"><strong>Challenge:</strong> {study.challenge}</p>
+            <p className="text-gray-700 mb-2"><strong>Solution:</strong> {study.solution}</p>
+            <p className="text-gray-700 mb-2"><strong>Result:</strong> {study.result}</p>
+            <p className="text-gray-700"><strong>Technologies:</strong> {study.technologies.join(', ')}</p>
+          </div>
+        ))}
+      </div>
+    </Layout>
   );
 };
 
