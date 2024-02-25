@@ -58,10 +58,11 @@ const CaseStudyItem: React.FC<CaseStudy> = ({ title, client, duration, challenge
   return (
     <div className="border border-gray-300 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out mb-6 cursor-pointer">
       <div className="p-6 bg-white dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-gray-700 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-101">
-        <h2 className="text-gray-700 dark:text-gray-300 text-sm md:text-base">{title}</h2>
+        {/* Make title bold */}
+        <h2 className="font-bold text-gray-900 dark:text-white text-lg md:text-xl">{title}</h2>
         <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base"><strong>Client:</strong> {client}</p>
         <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base"><strong>Duration:</strong> {duration}</p>
-        <p className="ttext-gray-700 dark:text-gray-300 text-sm md:text-base"><strong>Challenge:</strong> {challenge}</p>
+        <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base"><strong>Challenge:</strong> {challenge}</p>
         <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base"><strong>Solution:</strong> {solution}</p>
         <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base"><strong>Result:</strong> {result}</p>
         <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base"><strong>Key Technologies:</strong> {technologies.join(', ')}</p>
@@ -69,6 +70,7 @@ const CaseStudyItem: React.FC<CaseStudy> = ({ title, client, duration, challenge
     </div>
   );
 };
+
 
 const CasesPage: React.FC = () => {
   return (
