@@ -1,61 +1,57 @@
-// Layout.tsx
-// Import the useTheme hook instead of ThemeProvider for context consumption
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import Link from 'next/link';
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
 import styled from 'styled-components';
-import { useTheme } from '../ThemeContext'; // Adjusted import to useTheme
-
 
 // Define props type
 type Props = {
-  children: React.ReactNode;
+  children: ReactNode;
+  toggleTheme?: () => void;
+  theme?: 'light' | 'dark';
 };
 
 // Styled component for navigation links
 const NavLink = styled.a`
-  color: #0070f3;
+  color: #0070f3; // Primary color for unvisited links
   text-decoration: none;
   &:visited {
-    color: #5e5e5e;
+    color: #5e5e5e; // Distinct color for visited links
   }
   &:hover,
   &:focus {
-    color: #003580;
-    text-decoration: underline;
+    color: #003580; // Interaction feedback color
+    text-decoration: underline; // Optional: underline on hover/focus
   }
 `;
 
 // Styled component for the logo
 const Logo = styled.div<{ theme: 'light' | 'dark' }>`
-  font-size: 2.5rem;
+  font-size: 2.5rem; /* Increase font size */
   font-weight: bold;
-  color: #0f2b46;
+  color: #0f2b46; // Set the color directly here
   text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-in-out;
+  letter-spacing: 2px; /* Increase letter spacing */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add text shadow */
+  transition: transform 0.3s ease-in-out; /* Add transition effect */
   
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Scale up on hover for an impressive effect */
   }
 `;
 
-const Layout: React.FC<Props> = ({ children }) => {
-  const { theme, toggleTheme } = useTheme(); // Correctly consume the theme context
 
+// Layout component
+const Layout: React.FC<Props> = ({ children, toggleTheme, theme = 'light' }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // No need to wrap with ThemeProvider here; it should wrap the Layout component usage in _app.tsx or individual pages
   return (
     <main className={`flex flex-col items-center ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-900'} min-h-screen transition duration-500 ease-in-out p-4 sm:p-8 md:p-16 lg:p-24 xl:p-32`}>
       <header className="w-full max-w-screen-xl flex justify-between items-center mb-8 md:mb-12 lg:mb-16 px-4 md:px-8">
         <div className="flex items-center">
-          {/* Pass theme as a prop to Logo */}
           <Logo theme={theme}>Always On Technologies</Logo>
         </div>
 
@@ -92,7 +88,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         </nav>
       )}
       {children}
-      </main>
+    </main>
   );
 };
 

@@ -1,11 +1,9 @@
 // Import necessary libraries and components
 "use client";
+import React, { useState } from 'react';
 import { IconType } from 'react-icons';
 import { FaLaptopCode, FaUserCog, FaCloud, FaServer, FaMobileAlt, FaRobot } from "react-icons/fa";
-import Layout from './components/Layout'; 
-
-
-
+import Layout from './components/Layout'; // Adjust the import path as necessary
 
 // Define the type for service information
 type Service = {
@@ -63,14 +61,16 @@ function ServiceCard({ title, icon, description }: Service) {
 
 // HomePage component
 const HomePage: React.FC = () => {
-  return (
-    <Layout>
-      <div className="text-center mb-12">
-      <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${theme === 'dark' ? 'text-white' : 'text-custom-dark'}`}>
-  Empowering Your Digital Future
-</h2>
+  const [theme, setTheme] = useState<'light' | 'dark'>('light'); // State to manage theme
+  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light'); // Function to toggle theme
 
-        <p className={`text-md md:text-lg lg:text-xl `}>
+  return (
+    <Layout toggleTheme={toggleTheme} theme={theme}>
+      <div className="text-center mb-12">
+        <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${theme === 'dark' ? 'text-gray-100' : 'text-gray-900'}`}>
+          Empowering Your Digital Future
+        </h2>
+        <p className={`text-md md:text-lg lg:text-xl ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
           Specializing in cutting-edge solutions across software development, UI/UX design, and cloud technologies to drive your business forward.
         </p>
       </div>

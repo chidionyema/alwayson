@@ -1,15 +1,14 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../components/Layout'; // Adjust the import path as necessary
-import { useTheme } from '../ThemeContext'; // Import the useTheme hook
 
 const ContactPage = () => {
-  const { theme } = useTheme(); // Use the useTheme hook to access the current theme
+    const [theme, setTheme] = useState<'light' | 'dark'>('light'); // Example useState usage
   
   return (
     <Layout>
       <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto">
-        <h1 style={{ color: theme === 'dark' ? '#ffffff' : '#0f2b46', fontWeight: 'bold' }}>Contact Us</h1>
+      <h1 style={{ color: '#0f2b46' }}> Contact Us</h1>
         <form className="w-full max-w-lg">
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full px-3">
@@ -33,12 +32,12 @@ const ContactPage = () => {
                 Message
               </label>
               <textarea
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="message"
-                placeholder="Your message here..."
-                rows={5}
-              ></textarea>
-            </div>
+  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+  id="message"
+  placeholder="Your message here..."
+  rows={5} // Use curly braces to insert a JavaScript expression that evaluates to a number
+></textarea>
+        </div>
           </div>
           <div className="flex flex-wrap -mx-3 mb-2">
             <div className="w-full px-3">
