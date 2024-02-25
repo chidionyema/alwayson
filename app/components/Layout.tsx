@@ -1,7 +1,7 @@
 import React, { ReactNode, useState } from 'react';
 import Link from 'next/link';
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
-import styled from 'styled-components'; // Assuming you're using styled-components for CSS-in-JS
+import styled from 'styled-components';
 
 type Props = {
   children: ReactNode;
@@ -9,7 +9,6 @@ type Props = {
   theme?: 'light' | 'dark';
 };
 
-// Styled components for navigation links
 const NavLink = styled.a`
   color: #0070f3; // Primary color for unvisited links
   text-decoration: none;
@@ -23,7 +22,16 @@ const NavLink = styled.a`
   }
 `;
 
-const Layout: React.FC<Props> = ({ children, toggleTheme, theme }) => {
+// Define the Logo styled component
+const Logo = styled.div<{ theme: 'light' | 'dark' }>`
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: ${props => props.theme === 'dark' ? '#ffffff' : '#0070f3'};
+  text-transform: uppercase;
+  letter-spacing: 1px;
+`;
+
+const Layout: React.FC<Props> = ({ children, toggleTheme, theme = 'light' }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleMobileMenuToggle = () => {
@@ -34,7 +42,8 @@ const Layout: React.FC<Props> = ({ children, toggleTheme, theme }) => {
     <main className={`flex flex-col items-center p-4 sm:p-8 md:p-16 lg:p-24 xl:p-32 ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-900'} min-h-screen transition duration-500 ease-in-out`}>
       <header className="w-full max-w-screen-xl flex justify-between items-center mb-8 md:mb-12 lg:mb-16 px-4 md:px-8">
         <div className="flex items-center">
-          <span className="text-lg md:text-xl lg:text-2xl font-bold ml-4">Always On Technologies</span>
+          {/* Render the Logo component and pass the theme prop */}
+          <Logo theme={theme}>Always On Technologies</Logo>
         </div>
 
         <nav className="hidden md:flex flex-grow justify-end items-center">
@@ -45,11 +54,9 @@ const Layout: React.FC<Props> = ({ children, toggleTheme, theme }) => {
             <li><Link href="/profile" passHref><NavLink>Consultants</NavLink></Link></li>
             <li><Link href="/contact" passHref><NavLink>Contact</NavLink></Link></li>
           </ul>
-          {toggleTheme && (
-            <button onClick={toggleTheme} className="ml-6">
-              {theme === 'dark' ? <FaSun className="text-xl" /> : <FaMoon className="text-xl" />}
-            </button>
-          )}
+          <button onClick={toggleTheme} className="ml-6">
+            {theme === 'dark' ? <FaSun className="text-xl" /> : <FaMoon className="text-xl" />}
+          </button>
         </nav>
 
         <button onClick={handleMobileMenuToggle} className="md:hidden ml-6">
