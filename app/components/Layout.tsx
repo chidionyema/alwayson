@@ -16,20 +16,15 @@ const Layout: React.FC<Props> = ({ children, toggleTheme, theme }) => {
   };
 
   return (
-    <main className={`flex flex-col items-center p-8 md:p-16 lg:p-24 xl:p-32 ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-900'} min-h-screen transition duration-500 ease-in-out`}>
-      <header className="w-full flex flex-col md:flex-row justify-between items-center mb-12">
-        {/* Logo */}
-        <div className="flex items-center mb-4 md:mb-0">
-          <img src="/your-logo.png" alt="Always On Technologies" className="h-8 md:h-auto mr-2 md:mr-4" />
-          <span className="text-lg font-bold">Always On Technologies</span>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="block md:hidden">
-          <button onClick={handleMobileMenuToggle}>
-            {isMobileMenuOpen ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />}
-          </button>
-        </div>
+    <main className={`flex flex-col items-center p-4 sm:p-8 md:p-16 lg:p-24 xl:p-32 ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-900'} min-h-screen transition duration-500 ease-in-out`}>
+    <header className="w-full flex flex-col md:flex-row justify-between items-center mb-8 md:mb-12 lg:mb-16">
+      <div className="flex items-center justify-between w-full md:w-auto">
+        <img src="/your-logo.png" alt="Always On Technologies" className="h-10 md:h-12 lg:h-14 xl:h-16 mr-2 md:mr-4" />
+        <span className="text-lg md:text-xl lg:text-2xl font-bold">Always On Technologies</span>
+        <button onClick={handleMobileMenuToggle} className="md:hidden">
+          {isMobileMenuOpen ? <FaTimes className="text-2xl" /> : <FaBars className="text-2xl" />}
+        </button>
+      </div>
       
         {/* Theme toggle button */}
         {toggleTheme && (
