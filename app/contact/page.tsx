@@ -8,7 +8,8 @@ const ContactPage = () => {
   return (
     <Layout>
        <div className="page-container">
-       <h1 style={{ color: '#0f2b46' }} className="text-left text-[#0f2b46] font-bold"> Contact Us</h1>
+       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+       <h1 style={{ color: '#0f2b46' }} className="font-bold"> Contact Us</h1>
    
         <form className="w-full max-w-lg">
           <div className="flex flex-wrap -mx-3 mb-6">
@@ -48,6 +49,7 @@ const ContactPage = () => {
             </div>
           </div>
         </form>
+      </div>
       </div>
     </Layout>
   );
