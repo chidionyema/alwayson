@@ -3,8 +3,8 @@ import { FaMoon, FaSun } from 'react-icons/fa';
 
 type Props = {
   children: ReactNode;
-  toggleTheme: () => void; // Assuming you have a theme toggle function
-  theme: string; // Assuming you have a theme state
+  toggleTheme?: () => void;
+  theme?: 'light' | 'dark';
 };
 
 const Layout: React.FC<Props> = ({ children, toggleTheme, theme }) => {
