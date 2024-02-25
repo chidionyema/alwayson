@@ -8,8 +8,7 @@ const ContactPage = () => {
   return (
     <Layout>
       <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto">
-        <h1 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-8 ${theme === 'dark' ? 'text-gray-100' : 'text-gray-900'}`}>
-          Contact Us
+      <h1 className="text-3xl font-bold mb-8">Contact Us</h1>
         </h1>
         <form className="w-full max-w-lg">
           <div className="flex flex-wrap -mx-3 mb-6">
