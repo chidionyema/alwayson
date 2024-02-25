@@ -65,21 +65,22 @@ const HomePage: React.FC = () => {
   const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light'); // Function to toggle theme
 
   return (
-    <Layout toggleTheme={toggleTheme} theme={theme}>
-      <div className="text-center mb-12">
-        <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${theme === 'dark' ? 'text-gray-100' : 'text-gray-900'}`}>
-          Empowering Your Digital Future
-        </h2>
-        <p className={`text-md md:text-lg lg:text-xl ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
-          Specializing in cutting-edge solutions across software development, UI/UX design, and cloud technologies to drive your business forward.
-        </p>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((service, index) => (
-          <ServiceCard key={index} {...service} />
-        ))}
-      </div>
-    </Layout>
+    <Layout>
+    <div className="text-center mb-12">
+      <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${theme === 'dark' ? 'text-gray-100' : 'text-[#0f2b46]'}`}>
+        Empowering Your Digital Future
+      </h2>
+      <p className={`text-md md:text-lg lg:text-xl ${theme === 'dark' ? 'text-gray-300' : 'text-[#0f2b46]'}`}>
+        Specializing in cutting-edge solutions across software development, UI/UX design, and cloud technologies to drive your business forward.
+      </p>
+    </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((service, index) => (
+        <ServiceCard key={index} {...service} />
+      ))}
+    </div>
+  </Layout>;
+  
   );
 };
 
