@@ -51,7 +51,7 @@ const Layout: React.FC<Props> = ({ children, toggleTheme, theme = 'light' }) => 
   return (
     <main className={`flex flex-col items-center ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-900'} min-h-screen transition duration-500 ease-in-out p-4 sm:p-8 md:p-16 lg:p-24 xl:p-32`}>
       <header className="w-full max-w-screen-xl flex justify-between items-center mb-8 md:mb-12 lg:mb-16 px-4 md:px-8">
-      <div className="flex items-center pl-5"> {/* Adjusted with pl-2 for left padding */}
+      <div className="flex items-center pl-9"> {/* Adjusted with pl-2 for left padding */}
   <Logo theme={theme}>Always On Technologies</Logo>
 </div>
 
