@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Layout from '../components/Layout';
+import { ThemeProvider } from '../ThemeContext';
 
 const ClientsPage: React.FC = () => {
   return (

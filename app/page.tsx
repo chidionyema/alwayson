@@ -1,10 +1,9 @@
 // Import necessary libraries and components
 "use client";
-import React, { useState } from 'react';
 import { IconType } from 'react-icons';
 import { FaLaptopCode, FaUserCog, FaCloud, FaServer, FaMobileAlt, FaRobot } from "react-icons/fa";
 import Layout from './components/Layout'; // Adjust the import path as necessary
-import { useTheme } from './ThemeContext';
+import { ThemeProvider } from './ThemeContext';
 
 
 
@@ -67,9 +66,10 @@ const HomePage: React.FC = () => {
   return (
     <Layout>
       <div className="text-center mb-12">
-        <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4`}>
-          Empowering Your Digital Future
-        </h2>
+      <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${theme === 'dark' ? 'text-white' : 'text-custom-dark'}`}>
+  Empowering Your Digital Future
+</h2>
+
         <p className={`text-md md:text-lg lg:text-xl `}>
           Specializing in cutting-edge solutions across software development, UI/UX design, and cloud technologies to drive your business forward.
         </p>

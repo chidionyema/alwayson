@@ -2,7 +2,7 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import { CaseStudy } from '../interfaces/CaseStudy';
-
+import { ThemeProvider } from '../ThemeContext';
 // Mock data for demonstration
 const caseStudiesData: CaseStudy[] = [
   {
