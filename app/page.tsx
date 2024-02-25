@@ -67,10 +67,10 @@ const HomePage: React.FC = () => {
   return (
     <Layout>
       <div className="text-center mb-12">
-        <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${theme === 'dark' ? 'text-gray-100' : 'text-gray-900'}`}>
+        <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4`}>
           Empowering Your Digital Future
         </h2>
-        <p className={`text-md md:text-lg lg:text-xl ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+        <p className={`text-md md:text-lg lg:text-xl `}>
           Specializing in cutting-edge solutions across software development, UI/UX design, and cloud technologies to drive your business forward.
         </p>
       </div>
