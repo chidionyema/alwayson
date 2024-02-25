@@ -2,85 +2,68 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30">
-          Welcome to Always On Technologies, your expert partner for software development, user interface design, web and mobile development, cloud solutions, infrastructure, and automation.
+    <main className="flex flex-col items-center justify-between p-8 md:p-24 lg:p-32 xl:p-40">
+      <div className="max-w-5xl w-full text-center">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
+          Welcome to Always On Technologies
+        </h1>
+        <p className="text-lg md:text-xl lg:text-2xl mb-12">
+          We are specialists in software development, user interface design, web and mobile development, cloud solutions, infrastructure, and automation.
         </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://your-consultancy-website.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src="/your-logo.svg" // Replace with your logo image path
-              alt="Your Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+          <Image
+            src="/nextjs-logo.svg"
+            alt="Next.js Logo"
+            width={100}
+            height={100}
+            className="mb-4"
+          />
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">Next.js Development</h2>
+          <p className="text-lg md:text-xl lg:text-2xl text-center">
+            We excel in developing modern, high-performance web applications with Next.js.
+          </p>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+          <Image
+            src="/ui-design.svg"
+            alt="UI Design Icon"
+            width={100}
+            height={100}
+            className="mb-4"
+          />
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">User Interface Design</h2>
+          <p className="text-lg md:text-xl lg:text-2xl text-center">
+            Our team creates stunning and intuitive user interfaces to enhance user experiences.
+          </p>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+          <Image
+            src="/cloud-solutions.svg"
+            alt="Cloud Solutions Icon"
+            width={100}
+            height={100}
+            className="mb-4"
+          />
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">Cloud Solutions</h2>
+          <p className="text-lg md:text-xl lg:text-2xl text-center">
+            Utilize our expertise in cloud computing to build scalable and resilient solutions.
+          </p>
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/your-logo.svg" // Replace with your logo image path
-          alt="Your Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="mt-16">
+        <a
+          href="/contact"
+          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition duration-300 ease-in-out"
+        >
+          Contact Us
+        </a>
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="/services/software-development"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Software Development{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Our team of experienced developers crafts custom software solutions tailored to your unique needs.
-          </p>
-        </a>
-
-        <a
-          href="/services/ui-design"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            User Interface Design{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            We create intuitive and visually appealing user interfaces to enhance user experiences across platforms.
-          </p>
-        </a>
-
-        <a
-          href="/services/cloud-solutions"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Cloud Solutions{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Leverage the power of cloud computing with our scalable and secure cloud solutions.
-          </p>
-        </a>
-
-        <
+    </main>
+  );
+}
