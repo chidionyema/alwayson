@@ -1,7 +1,6 @@
-// pages/index.tsx
 import { IconType } from 'react-icons';
 import React from 'react';
-import { FaLaptopCode, FaUserCog, FaCloud, FaServer, FaMobileAlt, FaRobot } from "react-icons/fa";
+import { FaLaptopCode, FaUserCog, FaCloud, FaServer, FaMobileAlt, FaRobot, FaAdjust } from "react-icons/fa";
 import Layout from './components/Layout';
 
 type Service = {
@@ -14,41 +13,43 @@ const services: Service[] = [
   {
     title: "Software Development",
     icon: FaLaptopCode,
-    description: "We deliver custom software solutions tailored to your business needs.",
+    description: "Custom software solutions tailored to your business needs.",
   },
   {
     title: "User Interface Design",
     icon: FaUserCog,
-    description: "Our designers create intuitive and beautiful interfaces to enhance user experiences.",
+    description: "Intuitive and beautiful interfaces enhancing user experiences.",
   },
   {
     title: "Web and Mobile Development",
     icon: FaMobileAlt,
-    description: "We specialize in building responsive and feature-rich web and mobile applications.",
+    description: "Responsive, feature-rich web and mobile applications.",
   },
   {
     title: "Cloud Solutions",
     icon: FaCloud,
-    description: "Utilize our expertise in cloud computing to build scalable and resilient solutions.",
+    description: "Scalable and resilient cloud computing solutions.",
   },
   {
     title: "Infrastructure",
     icon: FaServer,
-    description: "We provide infrastructure solutions to support your applications and services.",
+    description: "Robust infrastructure solutions supporting your services.",
   },
   {
     title: "Automation",
     icon: FaRobot,
-    description: "Automate repetitive tasks and streamline your business processes for efficiency.",
+    description: "Efficiency through automation of repetitive tasks.",
   },
 ];
 
 const Home: React.FC = () => {
   return (
     <Layout>
-      {services.map((service, index) => (
-        <ServiceCard key={index} {...service} />
-      ))}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service, index) => (
+          <ServiceCard key={index} {...service} />
+        ))}
+      </div>
     </Layout>
   );
 };
@@ -57,10 +58,10 @@ function ServiceCard({ title, icon, description }: Service) {
   const Icon = icon;
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center justify-center transition duration-300 ease-in-out transform hover:scale-105">
-      <Icon className="text-5xl text-blue-500 mb-4" />
-      <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-4">{title}</h2>
-      <p className="text-base md:text-lg lg:text-xl text-center text-gray-700">{description}</p>
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl">
+      <Icon className="text-5xl text-blue-500 dark:text-blue-300 mb-4" />
+      <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-4 text-gray-900 dark:text-white">{title}</h2>
+      <p className="text-base md:text-lg lg:text-xl text-center text-gray-700 dark:text-gray-300">{description}</p>
     </div>
   );
 }
