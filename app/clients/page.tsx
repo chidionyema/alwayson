@@ -9,7 +9,7 @@ const ClientsPage: React.FC = () => {
         <p>We partner with leading organizations across various industries to deliver innovative solutions:</p>
         <ul>
           <li>
-            <strong>HMCTS (Her Majesty's Courts and Tribunals Service)</strong>: 
+            <strong>HMCTS (Her Majesty&apos;s Courts and Tribunals Service)</strong>: 
             Revolutionized government services by leading a digital infrastructure overhaul. This involved deploying a CI/CD pipeline, re-architecting the platform, and orchestrating microservices using Kubernetes.
           </li>
           <li>
@@ -42,7 +42,7 @@ const ClientsPage: React.FC = () => {
           </li>
           <li>
             <strong>BBC World Wide</strong>: 
-            Served as a senior/lead developer for BBC Worldwide's Talent contract automation system. Enhanced and supported Talent contract automation system and other internal systems/websites/CMS. Leveraged SOLID principles, Domain Driven Design, and BDD for development and testing.
+            Served as a senior/lead developer for BBC Worldwide&apos;s Talent contract automation system. Enhanced and supported Talent contract automation system and other internal systems/websites/CMS. Leveraged SOLID principles, Domain Driven Design, and BDD for development and testing.
           </li>
           <li>
             <strong>Dunhumby</strong>: 
