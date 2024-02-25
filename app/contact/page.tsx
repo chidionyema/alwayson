@@ -33,8 +33,13 @@ const ContactPage = () => {
               <label className={`block uppercase tracking-wide text-xs font-bold mb-2 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`} htmlFor="message">
                 Message
               </label>
-              <textarea className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="message" placeholder="Your message here..." rows="5"></textarea>
-            </div>
+              <textarea
+  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+  id="message"
+  placeholder="Your message here..."
+  rows={5} // Use curly braces to insert a JavaScript expression that evaluates to a number
+></textarea>
+        </div>
           </div>
           <div className="flex flex-wrap -mx-3 mb-2">
             <div className="w-full px-3">
