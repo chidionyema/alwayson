@@ -63,12 +63,14 @@ const ClientsPage: React.FC = () => {
 
 const ClientItem: React.FC<{ name: string; description: string }> = ({ name, description }) => {
   return (
-    <li className="border border-gray-200 rounded-lg shadow-sm hover:shadow-lg p-8 transition-shadow duration-300 ease-in-out">
-      <h2 className="text-2xl font-semibold mb-4">{name}</h2>
-      <p className="text-gray-600">{description}</p>
+    <li className="bg-white dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-gray-700 rounded-lg shadow-md hover:shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-101 p-6">
+      <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-2">{name}</h2>
+      <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base">{description}</p>
     </li>
   );
 };
+
+
 
 
 export default ClientsPage;
