@@ -1,5 +1,6 @@
 import React from 'react';
 import { CaseStudy } from '../interfaces/CaseStudy';
+import Layout from '../components/Layout';
 
 const CaseStudy: React.FC<CaseStudy> = ({ title, client, duration, challenge, solution, result, technologies }) => (
   <div className="case-study">
@@ -28,6 +29,7 @@ const ConsultantProfilePage: React.FC = () => {
   ];
 
   return (
+    <Layout>
     <div className="consultant-profile">
       <section className="bio">
         <h2>Chidi Onyema</h2>
@@ -40,6 +42,7 @@ const ConsultantProfilePage: React.FC = () => {
         ))}
       </section>
     </div>
+    </Layout>
   );
 };
 
