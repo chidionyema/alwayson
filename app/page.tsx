@@ -63,6 +63,7 @@ function ServiceCard({ title, icon, description }: Service) {
 
 // HomePage component
 const HomePage: React.FC = () => {
+  const { theme } = useTheme();
   return (
     <Layout>
       <div className="text-center mb-12">

@@ -3,7 +3,7 @@ import React from 'react';
 import Layout from '../components/Layout';
 import Image from 'next/image';
 import profilePic from '../assets/profile-pic.jpeg';
-import { ThemeProvider } from '../ThemeContext';
+import { useTheme } from './ThemeContext';
 
 const ConsultantProfilePage: React.FC = () => {
   return (
