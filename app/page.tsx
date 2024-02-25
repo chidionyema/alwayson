@@ -66,7 +66,7 @@ const HomePage: React.FC = () => {
 
   return (
     <Layout>
-    <div className="text-center mb-12">
+   <div className="page-container">
       <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${theme === 'dark' ? 'text-gray-100' : 'text-[#0f2b46]'}`}>
         Empowering Your Digital Future
       </h2>
