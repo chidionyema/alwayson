@@ -53,7 +53,7 @@ const caseStudiesData: CaseStudy[] = [
   // Add more case studies here if needed
 ];
 
-const CaseStudiesPage: React.FC = () => {
+const CasesPage: React.FC = () => {
   return (
     <Layout>
       <div className="page-container">
@@ -74,4 +74,4 @@ const CaseStudiesPage: React.FC = () => {
   );
 };
 
-export default CaseStudiesPage;
+export default CasesPage;
