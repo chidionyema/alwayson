@@ -44,7 +44,8 @@ const ContactPage = () => {
     <label className="block uppercase tracking-wide text-xs font-bold mb-2" htmlFor="message" style={{ color: '#0f2b46' }}>
       Message
     </label>
-    <textarea className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="message" placeholder="Your message here..." rows="5"></textarea>
+    <textarea className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="message" placeholder="Your message here..." rows={5}></textarea>
+
   </div>
 </div>
 
