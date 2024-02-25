@@ -8,7 +8,7 @@ const ConsultantProfilePage: React.FC = () => {
   return (
     <Layout>
       <div className="consultant-profile px-4 py-8">
-      <h1 style={{ color: '#0f2b46' }}> Our Consultants</h1>
+      <h1 style={{ color: '#0f2b46' , fontWeight: 'bold'  }}> Our Consultants</h1>
         <section className="bio text-center">
           <Image src={profilePic} alt="Chidi Onyema" width={144} height={144} className="rounded-full mx-auto mb-6" />
           <h1 className="text-3xl font-semibold mb-2">Chidi Onyema</h1>

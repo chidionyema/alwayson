@@ -6,7 +6,7 @@ const ClientsPage: React.FC = () => {
   return (
     <Layout>
       <div className="page-container">
-      <h1 style={{ color: '#0f2b46' }}> Our Clients</h1>
+      <h1 style={{ color: '#0f2b46', fontWeight: 'bold'  }}> Our Clients</h1>
         <p className="text-lg mb-6">
           We partner with leading organizations across various industries to deliver innovative solutions:
         </p>
@@ -70,10 +70,5 @@ const ClientItem: React.FC<{ name: string; description: string }> = ({ name, des
   );
 };
 
-
-
-
 export default ClientsPage;
-
-
 
