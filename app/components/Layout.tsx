@@ -6,9 +6,10 @@ import styled from 'styled-components';
 // Define props type
 type Props = {
   children: ReactNode;
-  toggleTheme: () => void; // Include toggleTheme in Props type
+  toggleTheme?: () => void; // Make toggleTheme optional by adding a question mark
   theme?: 'light' | 'dark';
 };
+
 
 // Styled component for navigation links
 const NavLink = styled.a`
