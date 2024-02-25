@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
 import styled from 'styled-components';
@@ -6,10 +6,7 @@ import styled from 'styled-components';
 // Define props type
 type Props = {
   children: ReactNode;
-  toggleTheme?: () => void; // Make toggleTheme optional by adding a question mark
-  theme?: 'light' | 'dark';
 };
-
 
 // Styled component for navigation links
 const NavLink = styled.a`
@@ -41,11 +38,27 @@ const Logo = styled.div<{ theme: 'light' | 'dark' }>`
 `;
 
 // Layout component
-const Layout: React.FC<Props> = ({ children, toggleTheme, theme = 'light' }) => {
+// Layout component
+const Layout: React.FC<Props> = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'dark'>('light'); // Initialize theme state
+
+  useEffect(() => {
+    // Check if theme preference is stored in local storage
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+      setTheme(storedTheme as 'light' | 'dark'); // Update theme state from local storage
+    }
+  }, []);
 
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme); // Update local storage with new theme
   };
 
   return (
@@ -64,12 +77,12 @@ const Layout: React.FC<Props> = ({ children, toggleTheme, theme = 'light' }) => 
             <li><Link href="/contact" passHref><NavLink>Contact</NavLink></Link></li>
           </ul>
           <button onClick={toggleTheme} className="ml-6">
-            {theme === 'dark' ? <FaSun className="text-xl" /> : <FaMoon className="text-xl" />}
+            {theme === 'dark' ? <FaSun className="text-yellow-300" /> : <FaMoon className="text-yellow-300" />}
           </button>
         </nav>
 
         <button onClick={handleMobileMenuToggle} className="md:hidden ml-6">
-          {isMobileMenuOpen ? <FaTimes className="text-2xl" /> : <FaBars className="text-2xl" />}
+          {isMobileMenuOpen ? <FaTimes className="text-yellow-300" /> : <FaBars className="text-yellow-300" />}
         </button>
       </header>
 
@@ -83,7 +96,7 @@ const Layout: React.FC<Props> = ({ children, toggleTheme, theme = 'light' }) => 
             <li><Link href="/profile" passHref><NavLink>Consultants</NavLink></Link></li>
           </ul>
           <button onClick={toggleTheme} className="mt-4">
-            {theme === 'dark' ? <FaSun className="text-xl" /> : <FaMoon className="text-xl" />}
+            {theme === 'dark' ? <FaSun className="text-yellow-300" /> : <FaMoon className="text-yellow-300" />}
           </button>
         </nav>
       )}
@@ -91,5 +104,3 @@ const Layout: React.FC<Props> = ({ children, toggleTheme, theme = 'light' }) => 
     </main>
   );
 };
-
-export default Layout;
