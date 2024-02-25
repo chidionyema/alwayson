@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
 import Link from 'next/link'; // Import Link from next/link for navigation
-import { FaMoon, FaSun } from 'react-icons/fa';
+import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
 
 type Props = {
   children: ReactNode;
@@ -9,25 +9,23 @@ type Props = {
 };
 
 const Layout: React.FC<Props> = ({ children, toggleTheme, theme }) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleMobileMenuToggle = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
-    <main className={`flex flex-col items-center p-8 md:p-16 lg:p-24 xl:p-32 ${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'} min-h-screen transition duration-500 ease-in-out`}>
+    <main className={`flex flex-col items-center p-8 md:p-16 lg:p-24 xl:p-32 ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-900'} min-h-screen transition duration-500 ease-in-out`}>
       <header className="w-full flex justify-between items-center mb-12">
-        <nav className="flex-1">
-          <ul className="flex justify-center gap-4">
-            <li><Link href="/"><a>Home</a></Link></li>
-            <li><Link href="/contact"><a>Contact</a></Link></li>
-            <li><Link href="/case-studies"><a>Case Studies</a></Link></li>
-            <li><Link href="/clients"><a>Clients</a></Link></li>
-            <li><Link href="/profile"><a>Consultants</a></Link></li>
-          </ul>
-        </nav>
-        {/* Ensuring the logo and button are properly aligned */}
-        <div style={{ flex: 3, display: 'flex', justifyContent: 'center' }}>
-          <div className="logo" style={{ textAlign: 'center' }}>
-            {/* Inline styles or className for logo */}
-            Always On Technologies
-          </div>
+        {/* Mobile Menu Button */}
+        <div className="block md:hidden">
+          <button onClick={handleMobileMenuToggle}>
+            {isMobileMenuOpen ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />}
+          </button>
         </div>
+      
+        {/* Theme toggle button */}
         {toggleTheme && (
           <div className="flex-1 text-right">
             <button onClick={toggleTheme} className="text-gray-600 dark:text-gray-300">
@@ -35,7 +33,29 @@ const Layout: React.FC<Props> = ({ children, toggleTheme, theme }) => {
             </button>
           </div>
         )}
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex md:flex-1 md:justify-center">
+          <ul className="flex gap-4">
+            <li><Link href="/"><a className={`nav-link ${theme === 'dark' ? 'dark-mode-text' : ''}`}>Home</a></Link></li>
+            <li><Link href="/contact"><a className={`nav-link ${theme === 'dark' ? 'dark-mode-text' : ''}`}>Contact</a></Link></li>
+            <li><Link href="/case-studies"><a className={`nav-link ${theme === 'dark' ? 'dark-mode-text' : ''}`}>Case Studies</a></Link></li>
+            <li><Link href="/clients"><a className={`nav-link ${theme === 'dark' ? 'dark-mode-text' : ''}`}>Clients</a></Link></li>
+            <li><Link href="/profile"><a className={`nav-link ${theme === 'dark' ? 'dark-mode-text' : ''}`}>Consultants</a></Link></li>
+          </ul>
+        </nav>
       </header>
+      {/* Mobile Navigation */}
+      {isMobileMenuOpen && (
+        <nav className="md:hidden">
+          <ul className="flex flex-col items-center">
+            <li><Link href="/"><a className={`nav-link ${theme === 'dark' ? 'dark-mode-text' : ''}`}>Home</a></Link></li>
+            <li><Link href="/contact"><a className={`nav-link ${theme === 'dark' ? 'dark-mode-text' : ''}`}>Contact</a></Link></li>
+            <li><Link href="/case-studies"><a className={`nav-link ${theme === 'dark' ? 'dark-mode-text' : ''}`}>Case Studies</a></Link></li>
+            <li><Link href="/clients"><a className={`nav-link ${theme === 'dark' ? 'dark-mode-text' : ''}`}>Clients</a></Link></li>
+            <li><Link href="/profile"><a className={`nav-link ${theme === 'dark' ? 'dark-mode-text' : ''}`}>Consultants</a></Link></li>
+          </ul>
+        </nav>
+      )}
       {children}
     </main>
   );
