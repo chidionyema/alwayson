@@ -2,8 +2,8 @@
 import React from 'react';
 import { CaseStudy } from '../interfaces/CaseStudy';
 import Layout from '../components/Layout';
-// Import profile picture for the consultant
-import profilePic from '../assets/profile-pic.jpeg'; // Adjust the path as necessary
+import Image from 'next/image'; // Import next/image component
+import profilePic from '../assets/profile-pic.jpeg';
 
 const CaseStudyComponent: React.FC<CaseStudy> = ({ title, client, duration, challenge, solution, result, technologies }) => (
   <div className="case-study">
@@ -36,7 +36,7 @@ const ConsultantProfilePage: React.FC = () => {
       <div className="consultant-profile">
         <section className="bio">
           {/* Profile Picture */}
-          <img src={profilePic} alt="Chidi Onyema" className="rounded-full h-24 w-24 mx-auto mb-4" />
+          <Image src={profilePic} alt="Chidi Onyema" className="rounded-full h-24 w-24 mx-auto mb-4" />
 
           {/* Consultant Information */}
           <h2 className="text-xl font-semibold">Chidi Onyema</h2>
