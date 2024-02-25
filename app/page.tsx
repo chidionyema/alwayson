@@ -1,7 +1,6 @@
 import { IconType } from "react-icons";
 import { FaLaptopCode, FaUserCog, FaCloud, FaServer, FaMobileAlt, FaRobot } from "react-icons/fa";
 
-// Define a type for the service object
 type Service = {
   title: string;
   icon: IconType;
@@ -11,11 +10,11 @@ type Service = {
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-between p-8 md:p-16 lg:p-24 xl:p-32 bg-gray-100 min-h-screen">
-      <div className="max-w-5xl w-full text-center mb-12">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-800">
+      <div className="max-w-4xl w-full text-center mb-12">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-900">
           Welcome to Always On Technologies
         </h1>
-        <p className="text-lg md:text-xl lg:text-2xl text-gray-600">
+        <p className="text-lg md:text-xl lg:text-2xl text-gray-700">
           We are specialists in software development, user interface design, web and mobile development, cloud solutions, infrastructure, and automation.
         </p>
       </div>
@@ -77,8 +76,8 @@ function ServiceCard({ title, icon, description }: Service) {
   return (
     <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center justify-center transition duration-300 ease-in-out transform hover:scale-105">
       <Icon className="text-5xl text-blue-500 mb-4" />
-      <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">{title}</h2>
-      <p className="text-lg md:text-xl lg:text-2xl text-center">{description}</p>
+      <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-4">{title}</h2>
+      <p className="text-base md:text-lg lg:text-xl text-center text-gray-700">{description}</p>
     </div>
   );
 }
