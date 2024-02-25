@@ -2,8 +2,9 @@
 "use client";
 import { IconType } from 'react-icons';
 import { FaLaptopCode, FaUserCog, FaCloud, FaServer, FaMobileAlt, FaRobot } from "react-icons/fa";
-import Layout from './components/Layout'; // Adjust the import path as necessary
-import { ThemeProvider } from './ThemeContext';
+import Layout from './components/Layout'; 
+import { useTheme } from './ThemeContext';
+
 
 
 
