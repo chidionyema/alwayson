@@ -1,8 +1,9 @@
 // Import necessary libraries and components
+"use client";
 import React, { useState } from 'react';
 import { IconType } from 'react-icons';
 import { FaLaptopCode, FaUserCog, FaCloud, FaServer, FaMobileAlt, FaRobot } from "react-icons/fa";
-import Layout from '../components/Layout'; // Adjust the import path as necessary
+import Layout from './components/Layout'; // Adjust the import path as necessary
 
 // Define the type for service information
 type Service = {
