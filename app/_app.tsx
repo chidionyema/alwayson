@@ -5,7 +5,7 @@
 import 'global.css';
 import React from 'react';
 import { AppProps } from 'next/app';
-import { ThemeProvider } from '../ThemeContext';
+import { ThemeProvider } from './ThemeContext';
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
