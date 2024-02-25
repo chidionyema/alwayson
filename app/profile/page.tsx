@@ -10,8 +10,9 @@ const ConsultantProfilePage: React.FC = () => {
    <div className="page-container">
    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
    <h1 style={{ color: '#0f2b46' }} className="font-bold">Our Consultants</h1>
-  
-
+   <p className="text-lg mb-6">
+    Our team of consultants comprises industry-leading experts with extensive experience in driving technological innovation and transformation. Specializing in areas such as software development, cloud computing, DevOps, and agile methodologies, they are dedicated to delivering exceptional value and actionable insights to our clients.
+  </p>
         <section className="bio text-center">
           <Image src={profilePic} alt="Chidi Onyema" width={144} height={144} className="rounded-full mx-auto mb-6" />
           <h1 className="text-3xl font-semibold mb-2">Chidi Onyema</h1>
