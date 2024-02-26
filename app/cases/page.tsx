@@ -87,6 +87,7 @@ const CaseStudyItem: React.FC<CaseStudy> = ({ title, client, duration, challenge
   );
 };
 
+
 // Define the CasesPage component
 const CasesPage: React.FC = () => {
   return (
