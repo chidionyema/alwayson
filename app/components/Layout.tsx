@@ -4,6 +4,13 @@ import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
 import { styled } from '@mui/material/styles';
 import { AppBar, Toolbar, Typography, IconButton, Button, Drawer, List, ListItem, ListItemText } from '@mui/material';
 
+// Define the Props type here
+interface Props {
+  children: ReactNode;
+  toggleTheme: () => void;
+  theme?: 'light' | 'dark'; // Make theme optional with a default value
+}
+
 const Logo = styled(Typography)<{ theme: 'light' | 'dark' }>`
   font-size: 2.5rem;
   font-weight: bold;
@@ -32,7 +39,6 @@ const NavLink = styled(Link)<{ theme: 'light' | 'dark' }>`
 
 const Layout: React.FC<Props> = ({ children, toggleTheme, theme = 'light' }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
