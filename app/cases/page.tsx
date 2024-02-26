@@ -58,7 +58,7 @@ const caseStudiesData: CaseStudy[] = [
 // Define the CaseStudyItem component
 const CaseStudyItem: React.FC<CaseStudy> = ({ title, client, duration, challenge, solution, result, technologies }) => {
   return (
-    <Card variant="outlined" sx={{ mb: 2 }}>
+    <Card variant="outlined" sx={{ mb: 2 }}> 
       <CardContent>
         {/* Make title bold */}
         <Typography variant="h5" component="h2" sx={{ mb: 1 }}>
