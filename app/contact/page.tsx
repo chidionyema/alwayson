@@ -11,9 +11,11 @@ const ContactPage = () => {
         <h1 style={{ color: '#0f2b46', fontWeight: 'bold' }}>Contact Us</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div>
-            <p className="text-lg mb-6">
-              We're eager to hear from you. Use the form below to send us a message, ask a question, or request a consultation. Our team will get back to you as soon as possible.
-            </p>
+          <p className="text-lg mb-6">
+  We&apos;re eager to hear from you. Use the form below to send us a message, ask a question, or request a consultation. Our team will get back to you as soon as possible.
+</p>
+
+
           </div>
           <form className="w-full max-w-lg mx-auto md:mx-0">
             {/* Form fields */}

@@ -97,8 +97,9 @@ const CasesPage: React.FC = () => {
           Case Studies
         </Typography>
         <Typography variant="body1" sx={{ mb: 4 }}>
-          Explore our collection of case studies to understand how we've helped...
-        </Typography>
+  Explore our collection of case studies to understand how we&apos;ve helped...
+</Typography>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {caseStudiesData.map((study, index) => (
             <CaseStudyItem key={index} {...study} />
