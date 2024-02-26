@@ -2,6 +2,8 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import { CaseStudy } from '../interfaces/CaseStudy';
+import { Card, CardContent, Typography } from '@mui/material';
+
 
 // Mock data for demonstration
 const caseStudiesData: CaseStudy[] = [
@@ -53,36 +55,50 @@ const caseStudiesData: CaseStudy[] = [
   // Add more case studies here if needed
 ];
 
-
+// Define the CaseStudyItem component
 const CaseStudyItem: React.FC<CaseStudy> = ({ title, client, duration, challenge, solution, result, technologies }) => {
   return (
-    <div className="border border-gray-300 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out mb-6 cursor-pointer">
-      <div className="p-6 bg-white dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-gray-700 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-101">
+    <Card variant="outlined" sx={{ mb: 2 }}>
+      <CardContent>
         {/* Make title bold */}
-        <h2 className="font-bold text-gray-900 dark:text-white text-lg md:text-xl">{title}</h2>
-        <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base"><strong>Client:</strong> {client}</p>
-        <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base"><strong>Duration:</strong> {duration}</p>
-        <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base"><strong>Challenge:</strong> {challenge}</p>
-        <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base"><strong>Solution:</strong> {solution}</p>
-        <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base"><strong>Result:</strong> {result}</p>
-        <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base"><strong>Key Technologies:</strong> {technologies.join(', ')}</p>
-      </div>
-    </div>
+        <Typography variant="h5" component="h2" sx={{ mb: 1 }}>
+          {title}
+        </Typography>
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+          <strong>Client:</strong> {client}
+        </Typography>
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+          <strong>Duration:</strong> {duration}
+        </Typography>
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+          <strong>Challenge:</strong> {challenge}
+        </Typography>
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+          <strong>Solution:</strong> {solution}
+        </Typography>
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+          <strong>Result:</strong> {result}
+        </Typography>
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+          <strong>Key Technologies:</strong> {technologies.join(', ')}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 };
 
-
-
-
+// Define the CasesPage component
 const CasesPage: React.FC = () => {
   return (
     <Layout>
       <div className="page-container">
-      <h1 style={{ color: '#0f2b46' , fontWeight: 'bold' }}> Case Studies</h1>
-      <p className="text-lg mb-6">
-  {" Explore our collection of case studies to understand how we've helped..."}
-</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Typography variant="h4" component="h1" sx={{ color: '#0f2b46', fontWeight: 'bold', mb: 2 }}>
+          Case Studies
+        </Typography>
+        <Typography variant="body1" sx={{ mb: 4 }}>
+          Explore our collection of case studies to understand how we've helped...
+        </Typography>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {caseStudiesData.map((study, index) => (
             <CaseStudyItem key={index} {...study} />
           ))}
@@ -91,5 +107,7 @@ const CasesPage: React.FC = () => {
     </Layout>
   );
 };
-export default CasesPage;
+
+
+
 

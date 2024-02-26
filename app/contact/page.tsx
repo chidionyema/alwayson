@@ -1,61 +1,48 @@
 "use client";
-import React, { useState } from 'react';
+import React from 'react';
 import Layout from '../components/Layout'; // Adjust the import path as necessary
-
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const ContactPage = () => {
   return (
     <Layout>
       <div className="page-container">
-      <h1 style={{ color: '#0f2b46', fontWeight: 'bold' }} >Contact Us</h1>
-
+        <h1 style={{ color: '#0f2b46', fontWeight: 'bold' }}>Contact Us</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div>
-            {/* Heading consistent with the Consultant Profile Page */}
-           
             <p className="text-lg mb-6">
-  {"We're eager to hear from you. Use the form below to send us a message, ask a question, or request a consultation. Our team will get back to you as soon as possible."}
-</p>
-
+              We're eager to hear from you. Use the form below to send us a message, ask a question, or request a consultation. Our team will get back to you as soon as possible.
+            </p>
           </div>
           <form className="w-full max-w-lg mx-auto md:mx-0">
             {/* Form fields */}
-          {/* Name Field */}
-<div className="flex flex-wrap -mx-3 mb-6">
-  <div className="w-full px-3">
-    <label className="block uppercase tracking-wide text-xs font-bold mb-2" htmlFor="name" style={{ color: '#0f2b46' }}>
-      Name
-    </label>
-    <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="name" type="text" placeholder="Jane Doe" />
-  </div>
-</div>
+            {/* Name Field */}
+            <div className="flex flex-wrap -mx-3 mb-6">
+              <div className="w-full px-3">
+                <TextField id="name" label="Name" variant="outlined" fullWidth />
+              </div>
+            </div>
 
-{/* Email Field */}
-<div className="flex flex-wrap -mx-3 mb-6">
-  <div className="w-full px-3">
-    <label className="block uppercase tracking-wide text-xs font-bold mb-2" htmlFor="email" style={{ color: '#0f2b46' }}>
-      Email
-    </label>
-    <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email" placeholder="email@example.com" />
-  </div>
-</div>
+            {/* Email Field */}
+            <div className="flex flex-wrap -mx-3 mb-6">
+              <div className="w-full px-3">
+                <TextField id="email" label="Email" variant="outlined" fullWidth />
+              </div>
+            </div>
 
-{/* Message Field */}
-<div className="flex flex-wrap -mx-3 mb-6">
-  <div className="w-full px-3">
-    <label className="block uppercase tracking-wide text-xs font-bold mb-2" htmlFor="message" style={{ color: '#0f2b46' }}>
-      Message
-    </label>
-    <textarea className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="message" placeholder="Your message here..." rows={5}></textarea>
-
-  </div>
-</div>
+            {/* Message Field */}
+            <div className="flex flex-wrap -mx-3 mb-6">
+              <div className="w-full px-3">
+                <TextField id="message" label="Message" multiline rows={5} variant="outlined" fullWidth />
+              </div>
+            </div>
 
             <div className="flex flex-wrap -mx-3 mb-2">
               <div className="w-full px-3 text-right">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                <Button variant="contained" color="primary">
                   Send Message
-                </button>
+                </Button>
               </div>
             </div>
           </form>

@@ -1,16 +1,17 @@
 "use client";
 import React from 'react';
+import { Typography, Grid } from '@mui/material';
 import Layout from '../components/Layout';
 
 const ClientsPage: React.FC = () => {
   return (
     <Layout>
       <div className="page-container">
-      <h1 style={{ color: '#0f2b46', fontWeight: 'bold'  }}> Our Clients</h1>
-        <p className="text-lg mb-6">
+        <Typography variant="h1" style={{ color: '#0f2b46', fontWeight: 'bold' }}> Our Clients</Typography>
+        <Typography variant="body1" className="text-lg mb-6">
           We partner with leading organizations across various industries to deliver innovative solutions:
-        </p>
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        </Typography>
+        <Grid container spacing={3}>
           <ClientItem
             name="HMCTS (Her Majesty's Courts and Tribunals Service)"
             description="Revolutionized government services by leading a digital infrastructure overhaul. This involved deploying a CI/CD pipeline, re-architecting the platform, and orchestrating microservices using Kubernetes."
@@ -55,7 +56,8 @@ const ClientsPage: React.FC = () => {
             name="ASOS"
             description="Contributed as a software engineer in web, application, and database development using ASP.NET, C#, and SQL Server 2008. Developed features to support e-commerce, back-office, and line-of-business applications. Worked on logistics for implementing a new delivery service on the ASOS customer-facing website."
           />
-        </ul>
+          {/* Add more ClientItems as needed */}
+        </Grid>
       </div>
     </Layout>
   );
@@ -63,12 +65,13 @@ const ClientsPage: React.FC = () => {
 
 const ClientItem: React.FC<{ name: string; description: string }> = ({ name, description }) => {
   return (
-    <li className="bg-white dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-gray-700 rounded-lg shadow-md hover:shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-101 p-6">
-      <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-2">{name}</h2>
-      <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base">{description}</p>
-    </li>
+    <Grid item xs={12} md={6} lg={4}>
+      <div className="bg-white dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-gray-700 rounded-lg shadow-md hover:shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-101 p-6">
+        <Typography variant="h2" className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-2">{name}</Typography>
+        <Typography variant="body2" className="text-gray-700 dark:text-gray-300 text-sm md:text-base">{description}</Typography>
+      </div>
+    </Grid>
   );
 };
 
 export default ClientsPage;
-
