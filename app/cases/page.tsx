@@ -112,4 +112,4 @@ const CasesPage: React.FC = () => {
 
 
 
-
+export default CasesPage;
