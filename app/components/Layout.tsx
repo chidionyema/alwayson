@@ -1,81 +1,59 @@
-import React, { ReactNode, useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
-import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import { AppBar, Toolbar, Typography, IconButton, Button, Drawer, List, ListItem, ListItemText } from '@mui/material';
 
-// Adjust the styled components for navigation links and logo
-const NavLink = styled('a')(({ theme }) => ({
-  color: theme.palette.mode === 'dark' ? '#FFF' : '#0070f3',
-  textDecoration: 'none',
-  '&:visited': {
-    color: theme.palette.mode === 'dark' ? '#CCC' : '#5e5e5e',
-  },
-  '&:hover, &:focus': {
-    color: theme.palette.mode === 'dark' ? '#FFF' : '#003580',
-    textDecoration: 'underline',
-  },
-}));
-
-const Logo = styled(Typography)(({ theme }) => ({
-  fontSize: '2.5rem',
-  fontWeight: 'bold',
-  color: theme.palette.mode === 'dark' ? '#FFF' : '#0f2b46',
-  textTransform: 'uppercase',
-  letterSpacing: '2px',
-  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
-  transition: 'transform 0.3s ease-in-out',
-  '&:hover': {
-    transform: 'scale(1.1)',
-  },
-}));
-
-interface LayoutProps {
-  children: ReactNode;
-}
-
-const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const [themeMode, setThemeMode] = useState<'light' | 'dark'>('light');
+const Layout = ({ children }) => {
+  const [themeMode, setThemeMode] = useState('light');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleTheme = () => {
+    setThemeMode(themeMode === 'light' ? 'dark' : 'light');
+    document.documentElement.classList.toggle('dark');
+  };
 
   const handleMobileMenuToggle = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
-  const muiTheme = createTheme({
-    palette: {
-      mode: themeMode,
-    },
-  });
-
-  const toggleTheme = () => {
-    setThemeMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
-  };
-
   return (
-    <ThemeProvider theme={muiTheme}>
-      <AppBar position="static">
-        <Toolbar>
-          <Logo variant="h6">Always On Technologies</Logo>
-          <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleMobileMenuToggle}>
-            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
-          </IconButton>
-          <Drawer anchor="right" open={isMobileMenuOpen} onClose={handleMobileMenuToggle}>
-            <List>
-              <ListItem button>
-                <Link href="/" passHref>
-                  <NavLink>Home</NavLink>
-                </Link>
-                <Link href="/cases" passHref>
-                  <NavLink>Case Studies</NavLink>
-                </Link>
-              </ListItem>
-              {/* Repeat for other navigation links */}
-            </List>
-          </Drawer>
-          <Button onClick={toggleTheme}>{themeMode === 'dark' ? <FaSun /> : <FaMoon />}</Button>
-        </Toolbar>
-      </AppBar>
-      {children}
-    </ThemeProvider>
+    <div className={`min-h-screen ${themeMode === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`}>
+      <nav className="bg-gray-100 dark:bg-gray-900 shadow-lg">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex justify-between">
+            <div className="flex space-x-7">
+              <div>
+                {/* Website Logo */}
+                <a href="#" className="flex items-center py-4 px-2">
+                  <span className="font-semibold text-gray-500 text-lg dark:text-white">Always On Technologies</span>
+                </a>
+              </div>
+              {/* Primary Navbar items */}
+              <div className="hidden md:flex items-center space-x-1">
+                <Link href="/" passHref><a className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Home</a></Link>
+                <Link href="/cases" passHref><a className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Case Studies</a></Link>
+                {/* More navigation items */}
+              </div>
+            </div>
+            {/* Mobile menu button */}
+            <div className="md:hidden flex items-center">
+              <button className="outline-none mobile-menu-button" onClick={handleMobileMenuToggle}>
+                {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+              </button>
+            </div>
+            <div className="hidden md:block">
+              <button onClick={toggleTheme} className="text-xl rounded-full p-3 hover:bg-gray-300 dark:hover:bg-gray-700 transition duration-300">
+                {themeMode === 'dark' ? <FaSun /> : <FaMoon />}
+              </button>
+            </div>
+          </div>
+        </div>
+        {/* Mobile Menu */}
+        <div className={`${isMobileMenuOpen ? 'block' : 'hidden'} md:hidden`}>
+          <Link href="/" passHref><a className="block text-sm px-2 py-4 text-gray-500 hover:bg-green-500 transition duration-300">Home</a></Link>
+          <Link href="/cases" passHref><a className="block text-sm px-2 py-4 text-gray-500 hover:bg-green-500 transition duration-300">Case Studies</a></Link>
+          {/* More mobile navigation items */}
+        </div>
+      </nav>
+      <main>{children}</main>
+    </div>
   );
 };
 
