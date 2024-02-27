@@ -71,27 +71,27 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <Drawer anchor="right" open={isMobileMenuOpen} onClose={handleMobileMenuToggle}>
           <List>
               <ListItem button>
-                <NavLink href="/" passHref>
+                <NavLink href="/">
                   <ListItemText primary="Home" />
                 </NavLink>
               </ListItem>
               <ListItem button>
-                <NavLink href="/cases" passHref>
+                <NavLink href="/cases">
                   <ListItemText primary="Case Studies" />
                 </NavLink>
               </ListItem>
               <ListItem button>
-                <NavLink href="/clients" passHref >
+                <NavLink href="/clients" >
                   <ListItemText primary="Clients" />
                 </NavLink>
               </ListItem>
               <ListItem button>
-                <NavLink href="/profile" passHref>
+                <NavLink href="/profile">
                   <ListItemText primary="Consultants" />
                 </NavLink>
               </ListItem>
               <ListItem button>
-                <NavLink href="/contact" passHref>
+                <NavLink href="/contact">
                   <ListItemText primary="Contact" />
                 </NavLink>
               </ListItem>
