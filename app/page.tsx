@@ -62,10 +62,10 @@ const HomePage: React.FC = () => {
         <h2 className={`text-3xl lg:text-4xl font-bold mb-4 ${theme === 'dark' ? 'text-gray-100' : 'text-gray-900'}`}>
           Empowering Your Digital Future
         </h2>
-        <p className="text-lg mb-6">
+        <p className="text-lg mb-6 text-gray-700 dark:text-gray-300">
           Specializing in cutting-edge solutions across software development, UI/UX design, and cloud technologies to drive your business forward.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <ServiceCard key={index} {...service} />
           ))}
