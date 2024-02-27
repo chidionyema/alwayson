@@ -1,8 +1,7 @@
 
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
-import 'react-toastify/dist/ReactToastify.css';
-import '../path/to/your/globals.css'; // Ensure this points to your global CSS file
+import './globals.css'; // Ensure this points to your global CSS file
 import { Inter } from "next/font/google";
 
 const theme = createTheme({
