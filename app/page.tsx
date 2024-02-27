@@ -1,4 +1,3 @@
-"use client"
 import React, { useState } from 'react';
 import { FaLaptopCode, FaUserCog, FaCloud, FaServer, FaMobileAlt, FaRobot } from 'react-icons/fa';
 import Layout from './components/Layout';
@@ -44,7 +43,7 @@ const services: Service[] = [
 
 function ServiceCard({ title, icon: Icon, description }: Service) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center hover:shadow-xl transition duration-300">
+    <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center hover:shadow-xl transition duration-300">
       <Icon className="text-5xl text-blue-500 dark:text-blue-300 mb-4 hover:text-blue-600 transition-colors duration-300" />
       <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">{title}</h3>
       <p className="text-center text-gray-700 dark:text-gray-300">{description}</p>
