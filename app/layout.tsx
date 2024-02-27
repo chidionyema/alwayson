@@ -1,28 +1,23 @@
 
-import { ThemeProvider, CssBaseline } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
-import './globals.css'; // Ensure this points to your global CSS file
-import { Inter } from "next/font/google";
 
-const theme = createTheme({
-  // your theme config
-});
 
-const inter = Inter({ subsets: ["latin"] });
+import NavBar from "./components/NavBar";
+import Footer from "@/app/components/Footer";
+import './globals.css'
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface LayoutProps {
   children: React.ReactNode;
-}>) {
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <div className={inter.className}>
-   
-        {children}
-        {/* Include other global components or context providers here */}
-      </div>
-    </ThemeProvider>
-  );
 }
+export default function RootLayout({ children }: LayoutProps) {
+  return (
+    <html lang="en">
+      <body>
+        <main className="flex min-h-screen flex-col items-center justify-between p-24 main">
+          <NavBar />
+          {children}
+          <Footer />
+        </main>
+      </body>
+    </html>
+  )
+}  

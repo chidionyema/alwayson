@@ -4,7 +4,7 @@ import Layout from '../components/Layout';
 
 const ConsultantProfilePage: React.FC = () => {
   return (
-    <Layout>
+   
       <div className="page-container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="col-span-full">
@@ -25,7 +25,7 @@ const ConsultantProfilePage: React.FC = () => {
           </div>
         </div>
       </div>
-    </Layout>
+  
   );
 };
 
