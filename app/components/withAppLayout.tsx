@@ -6,7 +6,6 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import NavBar from './NavBar';
 import Layout from './Layout';
-import 'react-toastify/dist/ReactToastify.css';
 import '../fontawesome'; // Adjust the import path as necessary
 
 const theme = createTheme({
@@ -37,7 +36,7 @@ const withAppLayout = (PageComponent: React.ComponentType<AppProps>) => {
           <NavBar />
           <Layout>
             <PageComponent {...props} />
-          ]
+          
           </Layout>
         </div>
         <style jsx global>{`
