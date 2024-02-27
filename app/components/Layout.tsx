@@ -1,31 +1,30 @@
 import React, { ReactNode, useState } from 'react';
 import Link from 'next/link';
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
-import { styled, useTheme as useMuiTheme, Theme } from '@mui/material/styles';
-import { AppBar, Toolbar, Typography, IconButton, Button, Drawer, List, ListItem, ListItemText, ThemeProvider } from '@mui/material';
-import { useTheme } from '../ThemeContext'; // Assuming this provides an object with { theme, toggleTheme }
+import { styled, useTheme as useMuiTheme, createTheme, ThemeProvider } from '@mui/material/styles';
+import { AppBar, Toolbar, Typography, IconButton, Button,  Drawer, List, ListItem, ListItemText } from '@mui/material';
+import { useTheme } from '../ThemeContext'; // Adjust the import path as necessary
 
-// Defining props for components that require the 'theme' prop.
-interface ThemedComponentProps {
-  theme: 'light' | 'dark';
-}
 
-// Extend the MUI theme to include your custom theme property if needed
-declare module '@mui/material/styles' {
-  interface Theme {
-    customTheme: 'light' | 'dark';
+// Styled component for navigation links
+const NavLink = styled.a`
+  color: #0070f3; // Primary color for unvisited links
+  text-decoration: none;
+  &:visited {
+    color: #5e5e5e; // Distinct color for visited links
   }
-  // allow configuration using `createTheme`
-  interface ThemeOptions {
-    customTheme?: 'light' | 'dark';
+  &:hover,
+  &:focus {
+    color: #003580; // Interaction feedback color
+    text-decoration: underline; // Optional: underline on hover/focus
   }
-}
+`;
 
-// Usage of the MUI theme within styled components
+// Styled components using Material-UI's 'styled' utility
 const Logo = styled(Typography)(({ theme }) => ({
   fontSize: '2.5rem',
   fontWeight: 'bold',
-  color: theme.palette.mode === 'dark' ? '#FFF' : '#0f2b46', // Adjusted to use palette.mode
+  color: theme.palette.mode === 'dark' ? '#FFF' : '#0f2b46',
   textTransform: 'uppercase',
   letterSpacing: '2px',
   textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
@@ -35,14 +34,11 @@ const Logo = styled(Typography)(({ theme }) => ({
   },
 }));
 
-const NavLink = styled(Link)<ThemedComponentProps>(({ theme }) => ({
-  color: '#0070f3',
+// Assuming NavLink needs to be a styled component
+const StyledLink = styled(Link)(({ theme }) => ({
+  color: theme.palette.mode === 'dark' ? '#FFF' : '#0f2b46',
   textDecoration: 'none',
-  '&:visited': {
-    color: '#5e5e5e',
-  },
   '&:hover, &:focus': {
-    color: '#003580',
     textDecoration: 'underline',
   },
 }));
@@ -52,34 +48,59 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const { toggleTheme, theme } = useTheme(); // Custom hook to access theme and toggleTheme
+  const { theme, toggleTheme } = useTheme(); // Custom hook to toggle and retrieve the current theme
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleMobileMenuToggle = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  const handleMobileMenuToggle = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
+  // Dynamically create a theme based on the custom theme context
+  const muiTheme = createTheme({
+    palette: {
+      mode: theme, // Directly use 'light' or 'dark' from the custom theme context
+    },
+  });
 
   return (
-    <ThemeProvider theme={(outerTheme: Theme) => ({ ...outerTheme, customTheme: theme })}>
-      <div>
-        <AppBar position="static">
-          <Toolbar>
-            <Logo variant="h6">
-              Always On Technologies
-            </Logo>
-            <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleMobileMenuToggle}>
-              {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
-            </IconButton>
-            <Drawer anchor="right" open={isMobileMenuOpen} onClose={handleMobileMenuToggle}>
-              <List>
-                {/* ListItems with NavLinks */}
-              </List>
-            </Drawer>
-            <Button onClick={toggleTheme}>{theme === 'dark' ? <FaSun /> : <FaMoon />}</Button>
-          </Toolbar>
-        </AppBar>
-        {children}
-      </div>
+    <ThemeProvider theme={muiTheme}>
+      <AppBar position="static">
+        <Toolbar>
+          <Logo variant="h6">Always On Technologies</Logo>
+          <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleMobileMenuToggle}>
+            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+          </IconButton>
+          <Drawer anchor="right" open={isMobileMenuOpen} onClose={handleMobileMenuToggle}>
+          <List>
+              <ListItem button>
+                <NavLink href="/" passHref>
+                  <ListItemText primary="Home" />
+                </NavLink>
+              </ListItem>
+              <ListItem button>
+                <NavLink href="/cases" passHref>
+                  <ListItemText primary="Case Studies" />
+                </NavLink>
+              </ListItem>
+              <ListItem button>
+                <NavLink href="/clients" passHref >
+                  <ListItemText primary="Clients" />
+                </NavLink>
+              </ListItem>
+              <ListItem button>
+                <NavLink href="/profile" passHref>
+                  <ListItemText primary="Consultants" />
+                </NavLink>
+              </ListItem>
+              <ListItem button>
+                <NavLink href="/contact" passHref>
+                  <ListItemText primary="Contact" />
+                </NavLink>
+              </ListItem>
+            </List>
+          </Drawer>
+          <Button onClick={toggleTheme}>{theme === 'dark' ? <FaSun /> : <FaMoon />}</Button>
+        </Toolbar>
+      </AppBar>
+      {children}
     </ThemeProvider>
   );
 };
