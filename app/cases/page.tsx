@@ -72,7 +72,7 @@ const CaseStudyItem: React.FC<CaseStudy> = ({ title, client, duration, challenge
 // Define the CasesPage component with refined layout and typography
 const CasesPage: React.FC = () => {
   return (
-    <Layout>
+
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl lg:text-4xl font-bold text-[#0f2b46] mb-4">Case Studies</h1>
         <p className="text-lg mb-8">Explore our collection of case studies to understand how we&rsquo;ve helped...</p>
@@ -83,7 +83,7 @@ const CasesPage: React.FC = () => {
           ))}
         </div>
       </div>
-    </Layout>
+  
   );
 };
 

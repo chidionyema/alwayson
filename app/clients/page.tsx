@@ -43,7 +43,6 @@ const ClientItem: React.FC<ClientItemProps> = ({ name, description }) => (
 // Main page component
 const ClientsPage = () => {
   return (
-    <Layout>
       <div className="page-container p-4">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Our Clients</h1>
         <p className="text-lg mb-6 text-gray-700 dark:text-gray-300">
@@ -55,7 +54,7 @@ const ClientsPage = () => {
           ))}
         </div>
       </div>
-    </Layout>
+   
   );
 };
 

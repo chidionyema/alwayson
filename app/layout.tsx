@@ -1,14 +1,19 @@
+Skip to content
 
+n68shqv0r
 
-
-import NavBar from "./components/NavBar";
-import Footer from "@/app/components/Footer";
+// pages/_app.tsx or a similar entry point if you're customizing
+"use client"
+import React from 'react';
+import Head from 'next/head';
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
-import './globals.css'
+import { Inter } from 'next/font/google'; // Make sure you have Next.js font optimization set up
+import NavBar from './components/NavBar'; // Adjust the import path as necessary
+import Layout from './components/Layout'; // Adjust the import path as necessary
+import './globals.css'; // Global styles
+// FontAwesome setup
+import './fontawesome'; // Ensure you have this file set up for FontAwesome icons
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
 
 const theme = createTheme({
   typography: {
@@ -28,28 +33,38 @@ const theme = createTheme({
       fontWeight: 500,
       lineHeight: 1.2,
     },
-    h3: {
-      fontSize: '1.75rem',
-      fontWeight: 500,
-      lineHeight: 1.2,
-    },
-    // Add other typography defaults as needed
+    // Add other styles as needed
   },
-  // Include any other theme customizations here
 });
-export default function RootLayout({ children }: LayoutProps) {
+
+const inter = Inter({ subsets: ['latin'] });
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en">
-      <body>
-      <ThemeProvider theme={theme}>
-      <CssBaseline />
-        <main className="flex min-h-screen flex-col items-center justify-between p-24 main">
-          <NavBar />
-          {children}
-          <Footer />
-        </main>
-        </ThemeProvider>
-      </body>
-    </html>
-  )
-}  
+    <ThemeProvider theme={theme}>
+    <CssBaseline />
+    <Head>
+      <title>Your App Title</title>
+      <meta name="viewport" content="initial-scale=1, width=device-width" />
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    </Head>
+    <NavBar /> {/* Global NavBar component */}
+    <Layout> {/* Main layout component wrapping the page content */}
+    {children}
+    </Layout>
+    {/* Global styles */}
+    <style>{`
+      body {
+        font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+      }
+    `}</style>
+    </ThemeProvider>
+    );
+    
+}
+
+
