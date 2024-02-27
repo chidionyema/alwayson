@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, ReactNode } from 'react';
 import Link from 'next/link';
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
 
-const Layout = ({ children }) => {
-  const [themeMode, setThemeMode] = useState('light');
+// Define a type for the component's props
+type LayoutProps = {
+  children: ReactNode;
+};
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const [themeMode, setThemeMode] = useState<'light' | 'dark'>('light');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleTheme = () => {
