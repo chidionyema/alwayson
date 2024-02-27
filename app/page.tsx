@@ -59,7 +59,7 @@ const HomePage: React.FC = () => {
   const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
 
   return (
-    <Layout toggleTheme={toggleTheme} theme={theme}>
+    <Layout>
       <div className="page-container">
         <Typography variant="h2" className={`text-1xl md:text-1xl lg:text-1xl font-bold mb-4 ${theme === 'dark' ? 'text-gray-100' : 'text-[#0f2b46]'}`}>
           Empowering Your Digital Future
