@@ -1,6 +1,3 @@
-Skip to content
-
-n68shqv0r
 
 // pages/_app.tsx or a similar entry point if you're customizing
 "use client"
