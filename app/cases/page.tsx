@@ -76,7 +76,8 @@ const CasesPage: React.FC = () => {
     <Layout>
       <div className="page-container">
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0f2b46] mb-2">Case Studies</h1>
-        <p className="text-base md:text-lg lg:text-xl mb-4">Explore our collection of case studies to understand how we've helped...</p>
+        <p className="text-base md:text-lg lg:text-xl mb-4">Explore our collection of case studies to understand how we&rsquo;ve helped...</p>
+
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {caseStudiesData.map((study, index) => (
