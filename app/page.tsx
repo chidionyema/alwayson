@@ -1,6 +1,8 @@
 "use client"
 import React, { useState } from 'react';
 import { FaLaptopCode, FaUserCog, FaCloud, FaServer, FaMobileAlt, FaRobot } from 'react-icons/fa';
+import Layout from './components/Layout';
+
 type Service = {
   title: string;
   icon: any;  // Ideally, specify a precise type for icons if possible
@@ -56,7 +58,7 @@ const HomePage: React.FC = () => {
   const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
 
   return (
-
+<Layout>
       <div className="py-10 lg:py-16 px-4 max-w-screen-xl mx-auto">
         <h2 className={`text-4xl lg:text-5xl font-bold mb-6 ${theme === 'dark' ? 'text-gray-100' : 'text-gray-900'}`}>
           Empowering Your Digital Future
@@ -70,6 +72,7 @@ const HomePage: React.FC = () => {
           ))}
         </div>
       </div>
+      </Layout>
  
   );
 };
