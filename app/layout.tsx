@@ -1,5 +1,5 @@
 // pages/_app.tsx or a similar entry point if you're customizing
-"use client"
+
 import React from 'react';
 import Head from 'next/head';
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
