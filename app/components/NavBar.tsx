@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
-import 'react-toastify/dist/ReactToastify.css';
-
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useMediaQuery, Theme } from '@mui/material';
 import { Divider } from '@mui/material';
@@ -21,7 +18,6 @@ import { Box } from '@mui/system';
 
 
 const NavBar: React.FC = () => {
-  const router = useRouter();
   const [darkMode, setDarkMode] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const matchesSm = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
