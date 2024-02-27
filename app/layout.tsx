@@ -1,6 +1,6 @@
+
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
-import NavBar from './components/NavBar'; // Adjust according to your project structure
 import 'react-toastify/dist/ReactToastify.css';
 import '../path/to/your/globals.css'; // Ensure this points to your global CSS file
 import { Inter } from "next/font/google";
@@ -20,7 +20,7 @@ export default function RootLayout({
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className={inter.className}>
-        <NavBar />
+   
         {children}
         {/* Include other global components or context providers here */}
       </div>
