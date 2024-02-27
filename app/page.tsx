@@ -1,7 +1,6 @@
 "use client"
 import React, { useState } from 'react';
 import { FaLaptopCode, FaUserCog, FaCloud, FaServer, FaMobileAlt, FaRobot } from 'react-icons/fa';
-import withAppLayout from './components/withAppLayout';
 type Service = {
   title: string;
   icon: any;  // Ideally, specify a precise type for icons if possible
@@ -75,4 +74,4 @@ const HomePage: React.FC = () => {
   );
 };
 
-export default withAppLayout(HomePage);
+export default HomePage;
