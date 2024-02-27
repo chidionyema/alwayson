@@ -3,9 +3,8 @@ import Link from 'next/link';
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import { AppBar, Toolbar, Typography, IconButton, Button, Drawer, List, ListItem, ListItemText } from '@mui/material';
-import { useTheme } from '../ThemeContext'; // Adjust the import path as necessary
 
-// Styled component for navigation links
+// Adjust the styled components for navigation links and logo
 const NavLink = styled('a')(({ theme }) => ({
   color: theme.palette.mode === 'dark' ? '#FFF' : '#0070f3',
   textDecoration: 'none',
@@ -18,7 +17,6 @@ const NavLink = styled('a')(({ theme }) => ({
   },
 }));
 
-// Styled component for the logo
 const Logo = styled(Typography)(({ theme }) => ({
   fontSize: '2.5rem',
   fontWeight: 'bold',
@@ -37,17 +35,20 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const { theme, toggleTheme } = useTheme(); // Custom hook to toggle and retrieve the current theme
+  const [themeMode, setThemeMode] = useState<'light' | 'dark'>('light');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleMobileMenuToggle = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
-  // Dynamically create a theme based on the custom theme context
   const muiTheme = createTheme({
     palette: {
-      mode: theme, // Directly use 'light' or 'dark' from the custom theme context
+      mode: themeMode,
     },
   });
+
+  const toggleTheme = () => {
+    setThemeMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+  };
 
   return (
     <ThemeProvider theme={muiTheme}>
@@ -59,17 +60,18 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </IconButton>
           <Drawer anchor="right" open={isMobileMenuOpen} onClose={handleMobileMenuToggle}>
             <List>
-              {/* Wrap Link around NavLink for proper routing */}
-              <ListItem button component={Link} href="/">
-                <ListItemText primary="Home" />
+              <ListItem button>
+                <Link href="/" passHref>
+                  <NavLink>Home</NavLink>
+                </Link>
+                <Link href="/cases" passHref>
+                  <NavLink>Case Studies</NavLink>
+                </Link>
               </ListItem>
-              <ListItem button component={Link} href="/clients">
-                <ListItemText primary="About Us" />
-              </ListItem>
-              {/* Add more navigation links as needed */}
+              {/* Repeat for other navigation links */}
             </List>
           </Drawer>
-          <Button onClick={toggleTheme}>{theme === 'dark' ? <FaSun /> : <FaMoon />}</Button>
+          <Button onClick={toggleTheme}>{themeMode === 'dark' ? <FaSun /> : <FaMoon />}</Button>
         </Toolbar>
       </AppBar>
       {children}
