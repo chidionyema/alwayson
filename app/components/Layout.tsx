@@ -7,18 +7,18 @@ import { useTheme } from '../ThemeContext'; // Adjust the import path as necessa
 
 
 // Styled component for navigation links
-const NavLink = styled.a`
-  color: #0070f3; // Primary color for unvisited links
-  text-decoration: none;
-  &:visited {
-    color: #5e5e5e; // Distinct color for visited links
-  }
-  &:hover,
-  &:focus {
-    color: #003580; // Interaction feedback color
-    text-decoration: underline; // Optional: underline on hover/focus
-  }
-`;
+// Corrected definition for styling a basic HTML element with MUI's styled
+const NavLink = styled('a')(({ theme }) => ({
+  color: theme.palette.mode === 'dark' ? '#FFF' : '#0070f3',
+  textDecoration: 'none',
+  '&:visited': {
+    color: theme.palette.mode === 'dark' ? '#CCC' : '#5e5e5e',
+  },
+  '&:hover, &:focus': {
+    color: theme.palette.mode === 'dark' ? '#FFF' : '#003580',
+    textDecoration: 'underline',
+  },
+}));
 
 // Styled components using Material-UI's 'styled' utility
 const Logo = styled(Typography)(({ theme }) => ({
