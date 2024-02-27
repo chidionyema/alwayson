@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from 'react';
 import { FaLaptopCode, FaUserCog, FaCloud, FaServer, FaMobileAlt, FaRobot } from 'react-icons/fa';
 import Layout from './components/Layout';
