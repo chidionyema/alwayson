@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
 
-const Layout = ({ children }) => {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [themeMode, setThemeMode] = useState('light');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
