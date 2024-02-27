@@ -5,7 +5,7 @@ import Footer from './Footer';
 import StockPrices from './LeftPanel';
 import LatestAINews from './RightPanel';
 import { Box, Container, Typography, Paper, Button } from '@mui/material';
-import NavBar from './NavBar';
+
 // 1. Declare the children prop
 interface LayoutProps {
     children: React.ReactNode;
@@ -16,7 +16,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     return (
     
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif!important', transition: 'all 0.3s ease' }}>
-             <NavBar></NavBar>
+         
             <Box component="header" sx={{ textAlign: 'center', p: 2, fontSize: '2rem', fontWeight: 'bold', display: 'flex', justifyContent: 'center', alignItems: 'center', letterSpacing: '2px' }}>
                 <Typography variant="h5">Always On Technologies</Typography>
             </Box>
