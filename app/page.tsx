@@ -5,7 +5,7 @@ import Layout from './components/Layout';
 
 type Service = {
   title: string;
-  icon: any;
+  icon: any; // Consider specifying a more precise type if possible
   description: string;
 };
 
@@ -44,9 +44,9 @@ const services: Service[] = [
 
 function ServiceCard({ title, icon: Icon, description }: Service) {
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center hover:shadow-xl transition duration-300">
-      <Icon className="text-5xl text-blue-500 dark:text-blue-300 mb-4 hover:text-blue-600 transition-colors duration-300" />
-      <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">{title}</h3>
+    <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-6 flex flex-col items-center justify-center hover:shadow-lg transition-all duration-300 ease-in-out">
+      <Icon className="text-4xl text-blue-500 dark:text-blue-300 mb-4 hover:text-blue-400 transition-colors duration-300" />
+      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{title}</h3>
       <p className="text-center text-gray-700 dark:text-gray-300">{description}</p>
     </div>
   );
@@ -76,3 +76,4 @@ const HomePage: React.FC = () => {
 };
 
 export default HomePage;
+
