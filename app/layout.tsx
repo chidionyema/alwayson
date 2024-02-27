@@ -6,7 +6,7 @@ import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
 import { Inter } from 'next/font/google'; // Make sure you have Next.js font optimization set up
 import NavBar from './components/NavBar'; // Adjust the import path as necessary
 import Layout from './components/Layout'; // Adjust the import path as necessary
-import 'global.css'; // Global styles
+import 'globals.css'; // Global styles
 // FontAwesome setup
 import './fontawesome'; // Ensure you have this file set up for FontAwesome icons
 
