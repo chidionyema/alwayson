@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import Layout from '../components/Layout'; // Adjust the import path as necessary
 
