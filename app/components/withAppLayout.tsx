@@ -1,4 +1,3 @@
-// components/withAppLayout.tsx
 import React from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
@@ -21,13 +20,15 @@ const theme = createTheme({
 });
 
 // The HOC takes a Next.js page component as an argument
-const withAppLayout = (PageComponent: React.ComponentType<AppProps>) => {
+const withAppLayout = (PageComponent: React.ComponentType<any>) => {
   // This is the HOC itself, returning a functional component
-  return function WithAppLayout(props: AppProps) {
+  const WithAppLayout = (props: AppProps) => {
     return (
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Head>
+          {/* Add any head content you want to be included in all pages */}
+          <title>Your App Title</title>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
@@ -36,7 +37,6 @@ const withAppLayout = (PageComponent: React.ComponentType<AppProps>) => {
           <NavBar />
           <Layout>
             <PageComponent {...props} />
-          
           </Layout>
         </div>
         <style jsx global>{`
@@ -47,6 +47,13 @@ const withAppLayout = (PageComponent: React.ComponentType<AppProps>) => {
       </ThemeProvider>
     );
   };
+
+  // Use a type assertion to inform TypeScript that getInitialProps exists
+  if ((PageComponent as any).getInitialProps) {
+    WithAppLayout.getInitialProps = (PageComponent as any).getInitialProps;
+  }
+
+  return WithAppLayout;
 };
 
 export default withAppLayout;
