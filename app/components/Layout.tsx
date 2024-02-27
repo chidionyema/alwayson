@@ -46,7 +46,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     
                     <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>User Testimonial</Typography>
                     <Typography>
-                        "This application has been incredibly helpful in my trading journey!" - Satisfied User
                     </Typography>
 
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, mt: 3 }}>
