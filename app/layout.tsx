@@ -1,6 +1,7 @@
+"use client"
 import React from 'react';
 import NavBar from './components/NavBar'; // Import your custom navigation component
-import Layout from './components/Laoyout'; // Import your custom navigation component
+import Layout from './components/Layout'; // Import your custom navigation component
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
