@@ -1,13 +1,11 @@
 import React, { ReactNode, useState } from 'react';
 import Link from 'next/link';
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
-import { styled, useTheme as useMuiTheme, createTheme, ThemeProvider } from '@mui/material/styles';
-import { AppBar, Toolbar, Typography, IconButton, Button,  Drawer, List, ListItem, ListItemText } from '@mui/material';
+import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+import { AppBar, Toolbar, Typography, IconButton, Button, Drawer, List, ListItem, ListItemText } from '@mui/material';
 import { useTheme } from '../ThemeContext'; // Adjust the import path as necessary
 
-
 // Styled component for navigation links
-// Corrected definition for styling a basic HTML element with MUI's styled
 const NavLink = styled('a')(({ theme }) => ({
   color: theme.palette.mode === 'dark' ? '#FFF' : '#0070f3',
   textDecoration: 'none',
@@ -20,7 +18,7 @@ const NavLink = styled('a')(({ theme }) => ({
   },
 }));
 
-// Styled components using Material-UI's 'styled' utility
+// Styled component for the logo
 const Logo = styled(Typography)(({ theme }) => ({
   fontSize: '2.5rem',
   fontWeight: 'bold',
@@ -31,15 +29,6 @@ const Logo = styled(Typography)(({ theme }) => ({
   transition: 'transform 0.3s ease-in-out',
   '&:hover': {
     transform: 'scale(1.1)',
-  },
-}));
-
-// Assuming NavLink needs to be a styled component
-const StyledLink = styled(Link)(({ theme }) => ({
-  color: theme.palette.mode === 'dark' ? '#FFF' : '#0f2b46',
-  textDecoration: 'none',
-  '&:hover, &:focus': {
-    textDecoration: 'underline',
   },
 }));
 
@@ -69,32 +58,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
           </IconButton>
           <Drawer anchor="right" open={isMobileMenuOpen} onClose={handleMobileMenuToggle}>
-          <List>
-              <ListItem button>
-                <NavLink href="/">
-                  <ListItemText primary="Home" />
-                </NavLink>
+            <List>
+              {/* Wrap Link around NavLink for proper routing */}
+              <ListItem button component={Link} href="/">
+                <ListItemText primary="Home" />
               </ListItem>
-              <ListItem button>
-                <NavLink href="/cases">
-                  <ListItemText primary="Case Studies" />
-                </NavLink>
+              <ListItem button component={Link} href="/clients">
+                <ListItemText primary="About Us" />
               </ListItem>
-              <ListItem button>
-                <NavLink href="/clients" >
-                  <ListItemText primary="Clients" />
-                </NavLink>
-              </ListItem>
-              <ListItem button>
-                <NavLink href="/profile">
-                  <ListItemText primary="Consultants" />
-                </NavLink>
-              </ListItem>
-              <ListItem button>
-                <NavLink href="/contact">
-                  <ListItemText primary="Contact" />
-                </NavLink>
-              </ListItem>
+              {/* Add more navigation links as needed */}
             </List>
           </Drawer>
           <Button onClick={toggleTheme}>{theme === 'dark' ? <FaSun /> : <FaMoon />}</Button>
