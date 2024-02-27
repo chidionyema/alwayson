@@ -1,12 +1,12 @@
 // pages/_app.tsx or a similar entry point if you're customizing
+"use client"
 import React from 'react';
 import Head from 'next/head';
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
 import { Inter } from 'next/font/google'; // Make sure you have Next.js font optimization set up
 import NavBar from './components/NavBar'; // Adjust the import path as necessary
 import Layout from './components/Layout'; // Adjust the import path as necessary
-import '../styles/global.css'; // Global styles
-import 'react-toastify/dist/ReactToastify.css'; // Toast notifications styles
+import 'global.css'; // Global styles
 // FontAwesome setup
 import './fontawesome'; // Ensure you have this file set up for FontAwesome icons
 
@@ -42,27 +42,25 @@ export default function RootLayout({
 }>) {
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Head>
-        <title>Your App Title</title>
-        <meta name="description" content="Your App Description" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
-      </Head>
-      {/* Applying the Inter font class to the body */}
-      <body className={inter.className}>
-        <NavBar /> {/* Global NavBar */}
-        <Layout> {/* Main layout wrapping children */}
-          {children}
-        </Layout>
-        {/* Global styles, including Roboto font setup */}
-        <style jsx global>{`
-          body {
-            font-family: 'Roboto', sans-serif;
-          }
-        `}</style>
-      </body>
+    <CssBaseline />
+    <Head>
+      <title>Your App Title</title>
+      <meta name="viewport" content="initial-scale=1, width=device-width" />
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    </Head>
+    <NavBar /> {/* Global NavBar component */}
+    <Layout> {/* Main layout component wrapping the page content */}
+    {children}
+    </Layout>
+    {/* Global styles */}
+    <style>{`
+      body {
+        font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+      }
+    `}</style>
     </ThemeProvider>
-  );
+    );
+    
 }
+
+
